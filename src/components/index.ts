@@ -1,0 +1,13 @@
+export { default as Header } from "./Header";
+export { default as Safety } from "./Safety";
+export { default as PhoneCase1 } from "./PhoneCase1";
+export { default as PhoneCase2 } from "./PhoneCase2";
+export { default as MobileApp } from "./MobileApp";
+export { default as Reason } from "./Reason";
+export { default as Easy } from "./Easy";
+export { default as CardOrder } from "./CardOrder";
+export { default as HowToGet } from "./HowToGet";
+export { default as About } from "./About";
+export { default as AdditionalInfo } from "./AdditionalInfo/AdditionalInfo";
+export { default as HelpYou } from "./HelpYou";
+export { default as Footer } from "./Footer";
