@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "441b9df93b502d7ac012a8364f5d3472",
+    "revision": "8f6e13989f007bb21c296378f4f3857a",
     "url": "/juniorbank/index.html"
   },
   {
-    "revision": "a442fbf84b4bc08f9cb1",
+    "revision": "f72c5fbbf483da8cc793",
     "url": "/juniorbank/static/css/2.b650302e.chunk.css"
   },
   {
-    "revision": "08a062eb4a83fced76c9",
+    "revision": "6a15eb20781ad9b3b3a3",
     "url": "/juniorbank/static/css/main.63a3b52b.chunk.css"
   },
   {
-    "revision": "a442fbf84b4bc08f9cb1",
-    "url": "/juniorbank/static/js/2.a32918aa.chunk.js"
+    "revision": "f72c5fbbf483da8cc793",
+    "url": "/juniorbank/static/js/2.f7d05ae3.chunk.js"
   },
   {
     "revision": "ba3b4500f00880cf9656c39900077397",
-    "url": "/juniorbank/static/js/2.a32918aa.chunk.js.LICENSE"
+    "url": "/juniorbank/static/js/2.f7d05ae3.chunk.js.LICENSE"
   },
   {
-    "revision": "08a062eb4a83fced76c9",
-    "url": "/juniorbank/static/js/main.01c1098f.chunk.js"
+    "revision": "6a15eb20781ad9b3b3a3",
+    "url": "/juniorbank/static/js/main.428b858b.chunk.js"
   },
   {
     "revision": "124e880b355f2b85ddb2",

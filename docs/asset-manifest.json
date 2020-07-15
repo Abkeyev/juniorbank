@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/juniorbank/static/css/main.63a3b52b.chunk.css",
-    "main.js": "/juniorbank/static/js/main.01c1098f.chunk.js",
-    "main.js.map": "/juniorbank/static/js/main.01c1098f.chunk.js.map",
+    "main.js": "/juniorbank/static/js/main.428b858b.chunk.js",
+    "main.js.map": "/juniorbank/static/js/main.428b858b.chunk.js.map",
     "runtime-main.js": "/juniorbank/static/js/runtime-main.e10f7fe1.js",
     "runtime-main.js.map": "/juniorbank/static/js/runtime-main.e10f7fe1.js.map",
     "static/css/2.b650302e.chunk.css": "/juniorbank/static/css/2.b650302e.chunk.css",
-    "static/js/2.a32918aa.chunk.js": "/juniorbank/static/js/2.a32918aa.chunk.js",
-    "static/js/2.a32918aa.chunk.js.map": "/juniorbank/static/js/2.a32918aa.chunk.js.map",
+    "static/js/2.f7d05ae3.chunk.js": "/juniorbank/static/js/2.f7d05ae3.chunk.js",
+    "static/js/2.f7d05ae3.chunk.js.map": "/juniorbank/static/js/2.f7d05ae3.chunk.js.map",
     "index.html": "/juniorbank/index.html",
-    "precache-manifest.cd2bc65a24c60120e50d2ee7e2ce867b.js": "/juniorbank/precache-manifest.cd2bc65a24c60120e50d2ee7e2ce867b.js",
+    "precache-manifest.b29abeaaad49f66a8070431b829ae667.js": "/juniorbank/precache-manifest.b29abeaaad49f66a8070431b829ae667.js",
     "service-worker.js": "/juniorbank/service-worker.js",
     "static/css/2.b650302e.chunk.css.map": "/juniorbank/static/css/2.b650302e.chunk.css.map",
     "static/css/main.63a3b52b.chunk.css.map": "/juniorbank/static/css/main.63a3b52b.chunk.css.map",
-    "static/js/2.a32918aa.chunk.js.LICENSE": "/juniorbank/static/js/2.a32918aa.chunk.js.LICENSE"
+    "static/js/2.f7d05ae3.chunk.js.LICENSE": "/juniorbank/static/js/2.f7d05ae3.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.e10f7fe1.js",
     "static/css/2.b650302e.chunk.css",
-    "static/js/2.a32918aa.chunk.js",
+    "static/js/2.f7d05ae3.chunk.js",
     "static/css/main.63a3b52b.chunk.css",
-    "static/js/main.01c1098f.chunk.js"
+    "static/js/main.428b858b.chunk.js"
   ]
 }

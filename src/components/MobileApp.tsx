@@ -2,7 +2,8 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import ReactGA from "react-ga";
-import { BccTypography, BccButton } from "./BccComponents";
+import { BccTypography } from "./BccComponents";
+import { Parallax } from "react-scroll-parallax";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -105,31 +106,35 @@ const useStyles = makeStyles((theme: Theme) =>
     [theme.breakpoints.between("md", "xl")]: {
       rootOutside: {
         position: "relative",
+      },
+      headerBgPart: {
+        position: "absolute",
+        right: 0,
+        bottom: 0,
+        zIndex: 0,
+        "&>figure": { margin: 0 },
         "& > img": {
-          position: "absolute",
-          right: 0,
-          bottom: 0,
-          zIndex: 0,
+          width: "100%",
         },
-        "& > img:first-child": {
-          zIndex: 0,
-          left: 0,
-          top: 0,
-        },
-        "& > img:nth-child(2)": {
-          left: 50,
-          zIndex: 2,
-          bottom: -30,
-        },
-        "& > img:nth-child(3)": {
-          top: 0,
-          right: 0,
-          zIndex: 2,
-        },
-        "& > img:nth-child(4)": {
-          right: "30%",
-          bottom: -30,
-        },
+      },
+      headerBgPart1: {
+        zIndex: 0,
+        left: 0,
+        top: 0,
+      },
+      headerBgPart2: {
+        left: 50,
+        zIndex: 2,
+        bottom: -30,
+      },
+      headerBgPart3: {
+        top: 0,
+        right: 0,
+        zIndex: 2,
+      },
+      headerBgPart4: {
+        right: "30%",
+        bottom: -30,
       },
       root: {
         position: "relative",
@@ -156,7 +161,7 @@ const useStyles = makeStyles((theme: Theme) =>
           zIndex: 3,
           right: 40,
         },
-        "& > img:nth-child(2)": {
+        "& > figure": {
           position: "absolute",
           right: 0,
           top: -70,
@@ -181,10 +186,26 @@ const MobileApp = (props: any) => {
   const classes = useStyles({});
   return (
     <div className={classes.rootOutside}>
-      <img src={process.env.PUBLIC_URL + "/appBgPart1.svg"} alt="app" />
-      <img src={process.env.PUBLIC_URL + "/appBgPart2.svg"} alt="app" />
-      <img src={process.env.PUBLIC_URL + "/appBgPart5.svg"} alt="app" />
-      <img src={process.env.PUBLIC_URL + "/appBgPart4.svg"} alt="app" />
+      <div className={`${classes.headerBgPart} ${classes.headerBgPart1}`}>
+        <Parallax y={[120, 0]} tagOuter="figure">
+          <img src={process.env.PUBLIC_URL + "/appBgPart1.svg"} alt="app" />
+        </Parallax>
+      </div>
+      <div className={`${classes.headerBgPart} ${classes.headerBgPart2}`}>
+        <Parallax y={[120, 0]} tagOuter="figure">
+          <img src={process.env.PUBLIC_URL + "/appBgPart2.svg"} alt="app" />
+        </Parallax>
+      </div>
+      <div className={`${classes.headerBgPart} ${classes.headerBgPart3}`}>
+        <Parallax y={[120, 0]} tagOuter="figure">
+          <img src={process.env.PUBLIC_URL + "/appBgPart5.svg"} alt="app" />
+        </Parallax>
+      </div>
+      <div className={`${classes.headerBgPart} ${classes.headerBgPart4}`}>
+        <Parallax y={[120, 0]} tagOuter="figure">
+          <img src={process.env.PUBLIC_URL + "/appBgPart4.svg"} alt="app" />
+        </Parallax>
+      </div>
       <div className={classes.root}>
         <Grid
           container
@@ -215,7 +236,9 @@ const MobileApp = (props: any) => {
           </Grid>
           <Grid item className={classes.imgBlock}>
             <img src={process.env.PUBLIC_URL + "/phoneapp.svg"} alt="app" />
-            <img src={process.env.PUBLIC_URL + "/appBgPart3.svg"} alt="app" />
+            <Parallax y={[120, 0]} tagOuter="figure">
+              <img src={process.env.PUBLIC_URL + "/appBgPart3.svg"} alt="app" />
+            </Parallax>
           </Grid>
         </Grid>
       </div>

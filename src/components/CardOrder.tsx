@@ -293,7 +293,7 @@ const CardOrder = (props: any) => {
       direction="column"
       justify="center"
     >
-      <Grid
+      {/* <Grid
         container
         justify="space-between"
         wrap="nowrap"
@@ -309,7 +309,7 @@ const CardOrder = (props: any) => {
         <Grid item>
           <img src={process.env.PUBLIC_URL + "/junior-card3.svg"} />
         </Grid>
-      </Grid>
+      </Grid> */}
       <BccTypography type="h1" className={classes.title}>
         Заполните заявку и получите
         <br />

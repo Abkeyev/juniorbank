@@ -3,6 +3,7 @@ import { Grid } from "@material-ui/core";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import ReactGA from "react-ga";
 import { BccTypography, BccButton } from "./BccComponents";
+import { Parallax } from "react-scroll-parallax";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,21 +21,28 @@ const useStyles = makeStyles((theme: Theme) =>
         left: "-90px",
         top: 355,
         animation: "$cardMode 2s alternate infinite",
+        "& > figure > div > img": {},
       },
       headerBgPart2: {
         left: "35%",
         top: 36,
-        animation: "$cardMode2 8s linear infinite",
+        "& > figure > div > img": {
+          animation: "$cardMode2 8s linear infinite",
+        },
       },
       headerBgPart3: {
         right: "-30%",
         top: 0,
-        animation: "$cardMode3 5s alternate infinite",
+        "& > figure > div > img": {
+          animation: "$cardMode3 5s alternate infinite",
+        },
       },
       headerBgPart4: {
         right: 91,
         top: 430,
-        animation: "$cardMode2 6s linear infinite",
+        "& > figure > div > img": {
+          animation: "$cardMode2 6s linear infinite",
+        },
       },
       headerBtn: {
         backgroundColor: "#2D72E5!important",
@@ -159,7 +167,7 @@ const useStyles = makeStyles((theme: Theme) =>
         transform: "translateY(0)",
       },
       to: {
-        transform: "translateY(20px)",
+        transform: "translateY(200px)",
       },
     },
     "@keyframes cardMode2": {
@@ -190,28 +198,36 @@ const Header = (props: any) => {
   return (
     <div className={classes.headerRoot}>
       <div className={`${classes.headerBgPart} ${classes.headerBgPart1}`}>
-        <img
-          src={process.env.PUBLIC_URL + "/headerBgPart1.svg"}
-          alt="bgpart1"
-        />
+        <Parallax y={[120, 0]} tagOuter="figure">
+          <img
+            src={process.env.PUBLIC_URL + "/headerBgPart1.svg"}
+            alt="bgpart1"
+          />
+        </Parallax>
       </div>
       <div className={`${classes.headerBgPart} ${classes.headerBgPart2}`}>
-        <img
-          src={process.env.PUBLIC_URL + "/headerBgPart2.svg"}
-          alt="bgpart2"
-        />
+        <Parallax y={[120, 0]} tagOuter="figure">
+          <img
+            src={process.env.PUBLIC_URL + "/headerBgPart2.svg"}
+            alt="bgpart2"
+          />
+        </Parallax>
       </div>
       <div className={`${classes.headerBgPart} ${classes.headerBgPart3}`}>
-        <img
-          src={process.env.PUBLIC_URL + "/headerBgPart3.svg"}
-          alt="bgpart3"
-        />
+        <Parallax y={[120, 0]} tagOuter="figure">
+          <img
+            src={process.env.PUBLIC_URL + "/headerBgPart3.svg"}
+            alt="bgpart3"
+          />
+        </Parallax>
       </div>
       <div className={`${classes.headerBgPart} ${classes.headerBgPart4}`}>
-        <img
-          src={process.env.PUBLIC_URL + "/headerBgPart4.svg"}
-          alt="bgpart4"
-        />
+        <Parallax y={[120, 0]} tagOuter="figure">
+          <img
+            src={process.env.PUBLIC_URL + "/headerBgPart4.svg"}
+            alt="bgpart4"
+          />
+        </Parallax>
       </div>
 
       <Grid container direction="column" className={classes.header}>
