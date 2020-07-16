@@ -11,33 +11,6 @@ const useStyles = makeStyles((theme: Theme) =>
       rootOutside: {
         position: "relative",
         "& > img": {
-          position: "absolute",
-          right: 0,
-          bottom: 0,
-          zIndex: 0,
-          display: "none",
-        },
-        "& > img:first-child": {
-          zIndex: 0,
-          left: 0,
-          top: 0,
-          display: "none",
-        },
-        "& > img:nth-child(2)": {
-          left: 50,
-          zIndex: 2,
-          bottom: -30,
-          display: "none",
-        },
-        "& > img:nth-child(3)": {
-          top: 0,
-          right: 0,
-          zIndex: 2,
-          display: "none",
-        },
-        "& > img:nth-child(4)": {
-          right: "30%",
-          bottom: -30,
           display: "none",
         },
       },
@@ -70,9 +43,7 @@ const useStyles = makeStyles((theme: Theme) =>
           width: "100%",
           maxHeight: 500,
         },
-        "& > img:nth-child(2)": {
-          position: "relative",
-          width: "100%",
+        "& > figure": {
           display: "none",
         },
       },
@@ -101,6 +72,35 @@ const useStyles = makeStyles((theme: Theme) =>
         "& img": {
           width: "100%",
         },
+      },
+      headerBgPart: {
+        position: "absolute",
+        right: 0,
+        bottom: 0,
+        zIndex: 0,
+        "& > figure": { display: "none", margin: 0 },
+        "& > img": {
+          width: "100%",
+        },
+      },
+      headerBgPart1: {
+        zIndex: 0,
+        left: 0,
+        top: 0,
+      },
+      headerBgPart2: {
+        left: 50,
+        zIndex: 2,
+        bottom: -30,
+      },
+      headerBgPart3: {
+        top: 0,
+        right: 0,
+        zIndex: 2,
+      },
+      headerBgPart4: {
+        right: "30%",
+        bottom: -30,
       },
     },
     [theme.breakpoints.between("md", "xl")]: {
