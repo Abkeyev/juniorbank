@@ -29,7 +29,6 @@ function App() {
         <Reason />
         <Easy />
         <HowToGet />
-        {/* <About /> */}
         <CardOrder />
         <AdditionalInfo />
         <HelpYou />

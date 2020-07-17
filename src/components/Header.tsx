@@ -7,6 +7,54 @@ import { Parallax } from "react-scroll-parallax";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    "@keyframes fullRotation": {
+      "0%, 20%": {
+        transform: "rotate(0deg) translate3d(0,0,0)",
+      },
+      "30%": {
+        transform: "rotate(5deg)  translate3d(0,5px,0)",
+      },
+      "40%": {
+        transform: "rotate(-10deg) scale(1) translate3d(0,8px,-5px)",
+      },
+      "50%": {
+        transform: "rotate(5deg) translate3d(5px,-8px,-80px)",
+      },
+      "60%": {
+        transform: "rotate(0deg) translate3d(0,0,0)",
+      },
+      "50%, 100%": {
+        transform: "rotate(0)",
+      },
+    },
+    "@keyframes cardMode": {
+      from: {
+        transform: "translateY(0)",
+      },
+      to: {
+        transform: "translateY(200px)",
+      },
+    },
+    "@keyframes cardMode2": {
+      from: {
+        transform: "translateY(0) scale(0) rotate(0deg)",
+        opacity: 1,
+        filter: "blur(0px)",
+      },
+      to: {
+        transform: "translateY(20px) scale(1) rotate(360deg)",
+        opacity: 0,
+        filter: "blur(20px)",
+      },
+    },
+    "@keyframes cardMode3": {
+      from: {
+        transform: "translateY(0)",
+      },
+      to: {
+        transform: "translateY(20px)",
+      },
+    },
     [theme.breakpoints.between("md", "xl")]: {
       headerRoot: {
         width: "100%",
@@ -20,7 +68,6 @@ const useStyles = makeStyles((theme: Theme) =>
       headerBgPart1: {
         left: "-90px",
         top: 355,
-        animation: "$cardMode 2s alternate infinite",
         "& > figure > div > img": {},
       },
       headerBgPart2: {
@@ -74,6 +121,8 @@ const useStyles = makeStyles((theme: Theme) =>
           width: "100%",
           display: "block",
           maxWidth: 450,
+          transition: "350ms all",
+          animation: "3s $fullRotation ease infinite 2s",
         },
       },
     },
@@ -160,34 +209,6 @@ const useStyles = makeStyles((theme: Theme) =>
           display: "block",
           maxWidth: "initial",
         },
-      },
-    },
-    "@keyframes cardMode": {
-      from: {
-        transform: "translateY(0)",
-      },
-      to: {
-        transform: "translateY(200px)",
-      },
-    },
-    "@keyframes cardMode2": {
-      from: {
-        transform: "translateY(0) scale(0) rotate(0deg)",
-        opacity: 1,
-        filter: "blur(0px)",
-      },
-      to: {
-        transform: "translateY(20px) scale(1) rotate(360deg)",
-        opacity: 0,
-        filter: "blur(20px)",
-      },
-    },
-    "@keyframes cardMode3": {
-      from: {
-        transform: "translateY(0)",
-      },
-      to: {
-        transform: "translateY(20px)",
       },
     },
   })
