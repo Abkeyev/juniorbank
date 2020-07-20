@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Grid,
-  Typography,
   Table,
   TableBody,
   TableRow,
@@ -10,6 +9,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Tab from "./Tab";
+import { BccTypography } from "../BccComponents";
 import ReactGA from "react-ga";
 import { useTranslation } from "react-i18next";
 
@@ -68,7 +68,7 @@ const Benefits = () => {
   const rows = [
     {
       code: `Выпуск карты`,
-      value: `Мгновенный выпуск карты без посещения отделения клиентом и ребенком`,
+      value: `Мгновенный выпуск карты без посещения отделения клиентом и ребенком<br/>Мгновенный выпуск пластиковой карты в отделении банка родителем`,
     },
     {
       code: `Доступ`,
@@ -76,7 +76,7 @@ const Benefits = () => {
     },
     {
       code: `Лимиты`,
-      value: `Быстрое пополнение без комиссий`,
+      value: `Авто лимит в сутки на 5000 тг от банка, с возможностью корректировки родителем и просмотра установленного лимита ребенком.`,
     },
     {
       code: `Оплата за покупки`,
@@ -135,7 +135,7 @@ const Faq = () => {
     },
     {
       code: `Что интересного ребенок увидит в мобильном приложении Junior Bank?`,
-      value: `Мобильное приложение Junior Bank отражает карту ребенка и доступные средства на карте, историю покупок, заработанный кешбэк.`,
+      value: `Мобильное приложение Junior Bank отражает карту ребенка и доступные средства на карте, историю покупок, заработанный кэшбэк.`,
     },
     {
       code: `В мобильном приложении Junior Bank ребенок видит средства на карте Родителя/клиента?`,
@@ -146,8 +146,8 @@ const Faq = () => {
       value: `Да, Родитель/клиент видит карту ребенка и операции, произведенные по карте Junior.`,
     },
     {
-      code: `Какие условия по кешбэку для карты Junior?`,
-      value: `При совершении покупок по карте Junior на нее начисляется гарантированный кешбэк в размере 1%. Кешбэк начисляется на любую сумму покупки, даже на 10 тенге, максимальная сумма кешбэка в месяц 10 000 тенге.`,
+      code: `Какие условия по кэшбэку для карты Junior?`,
+      value: `При совершении покупок по карте Junior на нее начисляется гарантированный кэшбэк в размере 1%. Кешбэк начисляется на любую сумму покупки, даже на 10 тенге, максимальная сумма кэшбэка в месяц 10 000 тенге.`,
     },
     {
       code: `Может ли родитель/клиент управлять деньгами ребенка на карте Junior?`,
@@ -312,25 +312,27 @@ const useStyles = makeStyles((theme: Theme) =>
       title: {
         fontStyle: "normal",
         fontWeight: "bold",
+        marginBottom: 20,
         fontSize: 20,
         color: "#141414",
       },
     },
     [theme.breakpoints.between("sm", "xl")]: {
       root: {
-        padding: "60px 42px 52px 52px",
         width: "100%",
       },
       title: {
         fontStyle: "normal",
         fontWeight: "bold",
         fontSize: 40,
+        marginBottom: 40,
         color: "#141414",
       },
     },
     root: {
       maxWidth: 1280,
       margin: "0 auto",
+      marginBottom: 40,
       position: "relative",
     },
   })
@@ -352,6 +354,9 @@ const AdditionalInfo = () => {
 
   return (
     <Grid container className={classes.root}>
+      <BccTypography type="h2" block className={classes.title}>
+        Как заказать карту?
+      </BccTypography>
       <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
         <Tab
           onHandleChanged={(i: number) => swipeTab(i)}

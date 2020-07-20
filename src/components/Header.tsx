@@ -8,23 +8,25 @@ import { Parallax } from "react-scroll-parallax";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     "@keyframes fullRotation": {
-      "0%, 20%": {
-        transform: "rotate(0deg) translate3d(0,0,0)",
+      "0%": {
+        transform:
+          "translate3d(0px, 0px, 0px) rotate3d(0, 1, 0, 0deg) rotate(-10deg)",
       },
-      "30%": {
-        transform: "rotate(5deg)  translate3d(0,5px,0)",
-      },
-      "40%": {
-        transform: "rotate(-10deg) scale(1) translate3d(0,8px,-5px)",
+      "20%": {
+        transform:
+          "translate3d(0px, -10px, 0px) rotate3d(0, 1, 0, 40deg) rotate(-10deg)",
       },
       "50%": {
-        transform: "rotate(5deg) translate3d(5px,-8px,-80px)",
+        transform:
+          "translate3d(0px, 0px, 0px) rotate3d(0, 1, 0, 0deg) rotate(-10deg)",
       },
-      "60%": {
-        transform: "rotate(0deg) translate3d(0,0,0)",
+      "90%": {
+        transform:
+          "translate3d(0px, -10px, 0px) rotate3d(0, 1, 0, -360deg) rotate(-10deg)",
       },
-      "50%, 100%": {
-        transform: "rotate(0)",
+      "100%": {
+        transform:
+          "translate3d(0px, 0px, 0px) rotate3d(0, 1, 0, -360deg) rotate(-10deg)",
       },
     },
     "@keyframes cardMode": {
@@ -121,8 +123,10 @@ const useStyles = makeStyles((theme: Theme) =>
           width: "100%",
           display: "block",
           maxWidth: 450,
+          transform:
+            "translate3d(0px, 0px, 0px) rotate3d(0, 1, 0, 0deg)  rotate(-10deg)",
           transition: "350ms all",
-          animation: "3s $fullRotation ease infinite 2s",
+          animation: "4.5s $fullRotation ease infinite 1s",
         },
       },
     },
@@ -216,6 +220,16 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Header = (props: any) => {
   const classes = useStyles({});
+
+  const order = (e: any) => {
+    e.preventDefault();
+    ReactGA.event({
+      category: "1button_open_account_online_calltoaction",
+      action: "Open_account_online_calltoaction",
+    });
+    props.scrollToOrder();
+  };
+
   return (
     <div className={classes.headerRoot}>
       <div className={`${classes.headerBgPart} ${classes.headerBgPart1}`}>
@@ -272,7 +286,7 @@ const Header = (props: any) => {
                 вашего ребенка
               </BccTypography>
               <BccTypography type="p2" block className={classes.headerSubTitle}>
-                Первая детская карта. Учит управлять, сохранять,
+                Первая детская карта. Учит управлять, сохранять,&nbsp;
                 <br className={classes.brSm} />
                 приумножать и зарабатывать.
               </BccTypography>
@@ -280,6 +294,7 @@ const Header = (props: any) => {
                 variant="contained"
                 className={classes.headerBtn}
                 color="primary"
+                onClick={(e: any) => order(e)}
                 size="large"
               >
                 Заказать карту

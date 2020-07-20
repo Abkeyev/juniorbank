@@ -12,7 +12,7 @@ const BccInput = withStyles({
       marginLeft: 0,
     },
     "& label.Mui-focused": {
-      color: "#27AE60",
+      color: "#2D72E5",
     },
     "& .MuiInputLabel-outlined": {
       color: "#4D565F",

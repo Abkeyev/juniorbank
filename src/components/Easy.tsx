@@ -54,7 +54,6 @@ const useStyles = makeStyles((theme: Theme) =>
       root: {
         maxWidth: 1280,
         margin: "0 auto",
-        marginBottom: 25,
         padding: "0 56px 85px",
       },
       title: {
@@ -99,10 +98,10 @@ const Easy = (props: any) => {
             Легко и выгодно
           </BccTypography>
           <BccTypography block type="p2l" className={classes.subTitle}>
-            Оплата со смартфона в 1 клик и 1% гарантированного кешбэка в кармане
+            Оплата со смартфона в 1 клик и 1% гарантированного кэшбэка в кармане
             <br />
             <br />
-            Кешбэк можно вывести на карту или платить с них за покупки
+            Кэшбэк можно вывести на карту или платить им за покупки
           </BccTypography>
         </Grid>
       </Grid>

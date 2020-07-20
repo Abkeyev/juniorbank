@@ -87,8 +87,8 @@ const PhoneCase1 = (props: any) => {
             Финансовая грамотность
           </BccTypography>
           <BccTypography block type="p2l" className={classes.subTitle}>
-            Ребенок научится тратить с умом и считать карманные деньги и быть
-            более дисцеплинированным
+            Ребенок научится тратить с умом, считать карманные деньги и быть
+            более дисциплинированным
           </BccTypography>
         </Grid>
       </Grid>
