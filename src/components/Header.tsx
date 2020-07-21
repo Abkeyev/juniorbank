@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       "20%": {
         transform:
-          "translate3d(0px, -10px, 0px) rotate3d(0, 1, 0, 40deg) rotate(-10deg)",
+          "translate3d(0px, -5px, 0px) rotate3d(0, 1, 0, 60deg) rotate(-10deg)",
       },
       "50%": {
         transform:
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       "90%": {
         transform:
-          "translate3d(0px, -10px, 0px) rotate3d(0, 1, 0, -360deg) rotate(-10deg)",
+          "translate3d(0px, -5px, 0px) rotate3d(0, 1, 0, -360deg) rotate(-10deg)",
       },
       "100%": {
         transform:

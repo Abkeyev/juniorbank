@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/juniorbank/static/css/main.5bb555b7.chunk.css",
-    "main.js": "/juniorbank/static/js/main.bec24578.chunk.js",
-    "main.js.map": "/juniorbank/static/js/main.bec24578.chunk.js.map",
+    "main.js": "/juniorbank/static/js/main.3f2f3589.chunk.js",
+    "main.js.map": "/juniorbank/static/js/main.3f2f3589.chunk.js.map",
     "runtime-main.js": "/juniorbank/static/js/runtime-main.e10f7fe1.js",
     "runtime-main.js.map": "/juniorbank/static/js/runtime-main.e10f7fe1.js.map",
     "static/js/2.687d651a.chunk.js": "/juniorbank/static/js/2.687d651a.chunk.js",
     "static/js/2.687d651a.chunk.js.map": "/juniorbank/static/js/2.687d651a.chunk.js.map",
     "index.html": "/juniorbank/index.html",
-    "precache-manifest.23c9a536c725d2710e7d552399847593.js": "/juniorbank/precache-manifest.23c9a536c725d2710e7d552399847593.js",
+    "precache-manifest.204fa6101398e2dff7a5c7b0339dc27a.js": "/juniorbank/precache-manifest.204fa6101398e2dff7a5c7b0339dc27a.js",
     "service-worker.js": "/juniorbank/service-worker.js",
     "static/css/main.5bb555b7.chunk.css.map": "/juniorbank/static/css/main.5bb555b7.chunk.css.map",
     "static/js/2.687d651a.chunk.js.LICENSE": "/juniorbank/static/js/2.687d651a.chunk.js.LICENSE"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.e10f7fe1.js",
     "static/js/2.687d651a.chunk.js",
     "static/css/main.5bb555b7.chunk.css",
-    "static/js/main.bec24578.chunk.js"
+    "static/js/main.3f2f3589.chunk.js"
   ]
 }
