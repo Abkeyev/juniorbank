@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
         lineHeight: 1,
       },
       imgBlock: {
-        width: "100%",
+        width: "50%",
         position: "relative",
         display: "flex",
         justifyContent: "center",
@@ -62,11 +62,14 @@ const useStyles = makeStyles((theme: Theme) =>
       imgBlock: {
         width: "50%",
         position: "relative",
+        display: "flex",
+        justifyContent: "center",
+        padding: "32px 16px",
         "& > img": {
           position: "absolute",
-          bottom: 10,
-          left: "50%",
-          transform: "translate(-50%, 0)",
+          bottom: 20,
+          width: "60%",
+          animation: "$cardMode 2s alternate infinite",
         },
       },
       textBlock: { width: "50%", padding: "100px 70px 80px 0" },

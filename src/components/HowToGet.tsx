@@ -152,6 +152,7 @@ const useStyles = makeStyles((theme: Theme) =>
         marginBottom: 50,
       },
       lOut: {
+        alignItems: "center",
         flexWrap: "wrap",
         "& > div": {
           width: "auto",
@@ -159,7 +160,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       qr: {
         "& > img": {
-          height: "100%",
+          width: "100px",
         },
       },
       mobileLinks: { marginRight: 50 },
@@ -305,7 +306,7 @@ const HowToGet = (props: any) => {
             className={classes.star}
           >
             <Grid item>
-              <img src={process.env.PUBLIC_URL + "/step1.svg"} alt="Step2" />
+              <img src={process.env.PUBLIC_URL + "/step2.svg"} alt="Step2" />
             </Grid>
             <Grid item className={classes.starBlock2}>
               <BccTypography type="h4" block className={classes.starBusiness}>
@@ -313,7 +314,9 @@ const HowToGet = (props: any) => {
               </BccTypography>
               <BccTypography type="p2" block className={classes.starSteps}>
                 Станьте клиентом банка, зарегистрировавшись в bcc.kz
-                дистанционно
+                дистанционно или
+                <br />
+                придите в любое отделение банка
               </BccTypography>
             </Grid>
           </Grid>
@@ -338,8 +341,11 @@ const HowToGet = (props: any) => {
                 Подать заявку
               </BccTypography>
               <BccTypography type="p2" block className={classes.starSteps}>
-                Подайте заявку на выпуск виртуальной карты Junior или откройте
-                пластиковую карту мгновенного выпуска в отделении
+                Подайте заявку на выпуск виртуальной карты Junior
+                <br />
+                или
+                <br />
+                откройте пластиковую карту мгновенного выпуска в отделении
               </BccTypography>
             </Grid>
           </Grid>
@@ -353,7 +359,7 @@ const HowToGet = (props: any) => {
             className={classes.star}
           >
             <Grid item>
-              <img src={process.env.PUBLIC_URL + "/step4.png"} alt="Step5" />
+              <img src={process.env.PUBLIC_URL + "/step4.svg"} alt="Step5" />
             </Grid>
             <Grid item className={classes.starBlock2}>
               <BccTypography type="h4" block className={classes.starBusiness}>
@@ -375,7 +381,7 @@ const HowToGet = (props: any) => {
             className={classes.star}
           >
             <Grid item>
-              <img src={process.env.PUBLIC_URL + "/step5.png"} alt="Step5" />
+              <img src={process.env.PUBLIC_URL + "/step5.svg"} alt="Step5" />
             </Grid>
             <Grid item className={classes.starBlock2}>
               <BccTypography type="h4" block className={classes.starBusiness}>

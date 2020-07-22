@@ -286,9 +286,9 @@ const Header = (props: any) => {
                 вашего ребенка
               </BccTypography>
               <BccTypography type="p2" block className={classes.headerSubTitle}>
-                Первая детская карта. Учит управлять, сохранять,&nbsp;
-                <br className={classes.brSm} />
-                приумножать и зарабатывать.
+                Первая детская карта.
+                <br />
+                Учит управлять, сохранять, приумножать и зарабатывать.
               </BccTypography>
               <BccButton
                 variant="contained"

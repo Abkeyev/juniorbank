@@ -71,7 +71,7 @@ const BccButton = withStyles({
       boxShadow: "none",
     },
     "&:hover": {
-      backgroundColor: "#7DCEA0",
+      backgroundColor: "#5389e2",
       boxShadow: "none",
     },
     "&.Mui-disabled": {
@@ -80,14 +80,14 @@ const BccButton = withStyles({
     },
     "&:active": {
       boxShadow: "none",
-      backgroundColor: "#1F7042",
+      backgroundColor: "#5389e2",
     },
     "&.MuiButton-text": {
       textTransform: "uppercase",
       color: "#2D72E5",
       "&:hover": {
         background: "none",
-        color: "#1F7042",
+        color: "#5389e2",
       },
       "&:active": {
         boxShadow: "none",

@@ -46,6 +46,34 @@ const useStyles = makeStyles((theme: Theme) =>
         "& > figure": {
           display: "none",
         },
+        lOut: {
+          flexWrap: "wrap",
+          flexDirection: "column",
+          alignItems: "center",
+          "& > div": {
+            width: "100%",
+          },
+        },
+        qr: {
+          "& > img": {
+            width: "50%",
+          },
+        },
+        mobileLinks: {
+          marginRight: 6,
+          "& > a:last-child": {
+            marginBottom: 0,
+          },
+          "& > a": {
+            display: "block",
+            marginBottom: 12,
+            width: 120,
+            "& > img": {
+              display: "block",
+              width: 120,
+            },
+          },
+        },
       },
       textBlock: { width: "100%", padding: "32px 16px", textAlign: "right" },
       container: {
@@ -167,6 +195,18 @@ const useStyles = makeStyles((theme: Theme) =>
           top: -70,
         },
       },
+      lOut: {
+        alignItems: "center",
+        "& > div": {
+          width: "auto",
+        },
+      },
+      qr: {
+        "& > img": {
+          width: "100px",
+        },
+      },
+      mobileLinks: { marginRight: 50 },
       textBlock: { width: "50%", padding: "110px 0 160px 120px" },
       container: {
         position: "relative",
@@ -179,11 +219,45 @@ const useStyles = makeStyles((theme: Theme) =>
         marginRight: 22,
       },
     },
+    link: {
+      color: "#2D72E5",
+      display: "block",
+      textDecoration: "underline",
+      cursor: "pointer",
+    },
+    as: {
+      marginBottom: 25,
+      display: "inline-block",
+    },
   })
 );
 
 const MobileApp = (props: any) => {
   const classes = useStyles({});
+
+  const onClickAS = (e: any) => {
+    e.preventDefault();
+
+    ReactGA.event({
+      category: "Juniorbank_downloawd_AppStore",
+      action: "juniorbank_appstore",
+    });
+    window.open(
+      "https://apps.apple.com/kz/app/starbanking/id743617904",
+      "_blank"
+    );
+  };
+
+  const onClickGP = (e: any) => {
+    ReactGA.event({
+      category: "Juniorbank_downloawd_GooglePlay",
+      action: "juniorbank_googleplay",
+    });
+    window.open(
+      "https://apps.apple.com/kz/app/starbanking/id743617904",
+      "_blank"
+    );
+  };
   return (
     <div className={classes.rootOutside}>
       <div className={`${classes.headerBgPart} ${classes.headerBgPart1}`}>
@@ -221,16 +295,29 @@ const MobileApp = (props: any) => {
               Научите ребенка следить за своими тратами в мобильном приложении
               Junior Bank
             </BccTypography>
-            <Grid container className={classes.storesApp}>
-              <Grid item className={classes.appStore}>
-                <a href="" target="_blank">
-                  <img src={process.env.PUBLIC_URL + "/as.svg"} alt="app" />
-                </a>
+            <Grid
+              container
+              justify="flex-start"
+              direction="row"
+              className={classes.lOut}
+              wrap="nowrap"
+            >
+              <Grid item className={classes.mobileLinks}>
+                <span
+                  className={`${classes.link} ${classes.as}`}
+                  onClick={(e: any) => onClickAS(e)}
+                >
+                  <img src={process.env.PUBLIC_URL + "/as.svg"} />
+                </span>
+                <span
+                  className={classes.link}
+                  onClick={(e: any) => onClickGP(e)}
+                >
+                  <img src={process.env.PUBLIC_URL + "/gp.svg"} />
+                </span>
               </Grid>
-              <Grid item className={classes.googleMarker}>
-                <a href="" target="_blank">
-                  <img src={process.env.PUBLIC_URL + "/gp.svg"} alt="app" />
-                </a>
+              <Grid item className={classes.qr}>
+                <img src={process.env.PUBLIC_URL + "/qr.svg"} />
               </Grid>
             </Grid>
           </Grid>
