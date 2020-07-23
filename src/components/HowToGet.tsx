@@ -389,8 +389,11 @@ const HowToGet = (props: any) => {
               </BccTypography>
               <BccTypography type="p2" block className={classes.starSteps}>
                 Привяжите виртуальную карту Junior к Apple Pay/ Samsung Pay и
-                платите смартфоном или пластиковой картой Junior выпущенной в
-                отделении Банка.
+                платите смартфоном
+                <br />
+                или
+                <br />
+                пластиковой картой Junior выпущенной в отделении Банка.
               </BccTypography>
             </Grid>
           </Grid>
