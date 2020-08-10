@@ -159,6 +159,11 @@ const useStyles = makeStyles((theme: Theme) =>
           cursor: "pointer",
         },
       },
+      textPapr: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+      },
       ourSpec: {
         fontStyle: "normal",
         fontWeight: "normal",
@@ -235,11 +240,12 @@ const HelpYou = () => {
         >
           <Box
             onClick={() => onClickCall505()}
-            className={classes.paper}
+            className={`${classes.paper} ${classes.textPapr}`}
             height={1}
           >
             <Typography className={classes.freeCallText}>
-              <Call className={classes.freeCall} /> 505
+              <Call className={classes.freeCall} />
+              505
             </Typography>
             <Typography className={classes.ourSpec}>
               Бесплатно с мобильного

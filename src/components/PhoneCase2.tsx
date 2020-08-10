@@ -15,26 +15,30 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       title: {
         marginBottom: 32,
-        fontSize: 32,
+        fontSize: 28,
         fontWeight: "bold",
         lineHeight: 1,
       },
       imgBlock: {
-        width: "100%",
+        width: "40%",
         position: "relative",
         "& > img": {
           position: "relative",
           width: "100%",
         },
       },
-      textBlock: { width: "100%", padding: "32px 16px" },
+      textBlock: {
+        width: "60%",
+        padding: "32px 16px",
+        boxSizing: "border-box",
+      },
       container: {
         backgroundColor: "#F1F7F9",
         borderRadius: 24,
         width: "100%",
         flexWrap: "nowrap",
         display: "flex",
-        alignItems: "flex-end",
+        alignItems: "center",
       },
     },
     [theme.breakpoints.between("md", "xl")]: {
