@@ -51,9 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "50%",
         position: "relative",
         "& > img": {
-          position: "absolute",
-          bottom: 0,
-          left: 0,
+          width: "100%",
         },
       },
       textBlock: { width: "50%", padding: "100px 70px 80px 0" },
