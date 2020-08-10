@@ -387,7 +387,8 @@ const HowToGet = (props: any) => {
         <div
           className={fixed ? classes.fixedGif : ""}
           style={{
-            background: `url(/${active + 1}-step.gif) no-repeat center bottom`,
+            background: `url(/${process.env.PUBLIC_URL}/${active +
+              1}-step.gif) no-repeat center bottom`,
           }}
         ></div>
       </div>
@@ -397,8 +398,8 @@ const HowToGet = (props: any) => {
             <div
               className={classes.stepImg}
               style={{
-                background: `url(/${active +
-                  1}-step.gif) no-repeat center bottom`,
+                background: `url(/${process.env.PUBLIC_URL +
+                  "/1-step.gif"}) no-repeat center bottom`,
               }}
             ></div>
           </div>
@@ -431,7 +432,8 @@ const HowToGet = (props: any) => {
             <div
               className={classes.stepImg}
               style={{
-                background: `url(/2-step.gif) no-repeat center bottom`,
+                background: `url(${process.env.PUBLIC_URL +
+                  "/2-step.gif"}) no-repeat center bottom`,
               }}
             ></div>
           </div>
@@ -456,7 +458,8 @@ const HowToGet = (props: any) => {
             <div
               className={classes.stepImg}
               style={{
-                background: `url(/3-step.gif) no-repeat center bottom`,
+                background: `url(${process.env.PUBLIC_URL +
+                  "/3-step.gif"}) no-repeat center bottom`,
               }}
             ></div>
           </div>
