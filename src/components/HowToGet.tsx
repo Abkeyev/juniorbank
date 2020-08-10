@@ -387,7 +387,7 @@ const HowToGet = (props: any) => {
         <div
           className={fixed ? classes.fixedGif : ""}
           style={{
-            background: `url(/${process.env.PUBLIC_URL}/${active +
+            background: `url(${process.env.PUBLIC_URL}/${active +
               1}-step.gif) no-repeat center bottom`,
           }}
         ></div>
@@ -398,7 +398,7 @@ const HowToGet = (props: any) => {
             <div
               className={classes.stepImg}
               style={{
-                background: `url(/${process.env.PUBLIC_URL +
+                background: `url(${process.env.PUBLIC_URL +
                   "/1-step.gif"}) no-repeat center bottom`,
               }}
             ></div>

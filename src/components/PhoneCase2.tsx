@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "100%",
         flexWrap: "nowrap",
         display: "flex",
-        alignItems: "center",
+        alignItems: "flex-end",
       },
     },
     [theme.breakpoints.between("md", "xl")]: {
@@ -77,7 +77,7 @@ const PhoneCase2 = (props: any) => {
         className={classes.container}
       >
         <Grid item className={classes.imgBlock}>
-          <img src={process.env.PUBLIC_URL + "/phonecase2.svg"} alt="app" />
+          <img src={process.env.PUBLIC_URL + "/phonecase2.png"} alt="app" />
         </Grid>
         <Grid item className={classes.textBlock}>
           <BccTypography block type="h1" className={classes.title}>
