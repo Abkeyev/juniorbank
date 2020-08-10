@@ -32,11 +32,23 @@ const useStyles = makeStyles((theme: Theme) =>
       subTitle: {
         marginBottom: 32,
       },
+      lOut: {
+        flexWrap: "nowrap",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "flex-end",
+      },
+      qr: {
+        "& > img": {
+          height: 70,
+        },
+      },
       imgBlock: {
         gridArea: "a",
-        width: "100%",
+        width: "60%",
         position: "relative",
         zIndex: 4,
+        textAlign: "right",
         "& > img:first-child": {
           position: "relative",
           zIndex: 3,
@@ -46,34 +58,24 @@ const useStyles = makeStyles((theme: Theme) =>
         "& > figure": {
           display: "none",
         },
-        lOut: {
-          flexWrap: "wrap",
-          flexDirection: "column",
-          alignItems: "center",
-          "& > div": {
-            width: "100%",
-          },
+      },
+      mobileLinks: {
+        marginRight: 24,
+        "& > a:last-child": {
+          marginBottom: 0,
         },
-        qr: {
+        "& > a": {
+          display: "block",
+          marginBottom: 12,
+          width: 120,
           "& > img": {
-            width: "50%",
-          },
-        },
-        mobileLinks: {
-          marginRight: 6,
-          "& > a:last-child": {
-            marginBottom: 0,
-          },
-          "& > a": {
             display: "block",
-            marginBottom: 12,
             width: 120,
-            "& > img": {
-              display: "block",
-              width: 120,
-            },
           },
         },
+      },
+      as: {
+        marginBottom: 10,
       },
       textBlock: { width: "100%", padding: "32px 16px", textAlign: "right" },
       container: {
@@ -207,7 +209,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
       },
       mobileLinks: { marginRight: 50 },
-      textBlock: { width: "50%", padding: "110px 0 160px 120px" },
+      textBlock: { width: "50%", padding: "80px 0 80px 80px" },
       container: {
         position: "relative",
         zIndex: 3,
@@ -218,16 +220,16 @@ const useStyles = makeStyles((theme: Theme) =>
       appStore: {
         marginRight: 22,
       },
+      as: {
+        marginBottom: 25,
+        display: "inline-block",
+      },
     },
     link: {
       color: "#2D72E5",
       display: "block",
       textDecoration: "underline",
       cursor: "pointer",
-    },
-    as: {
-      marginBottom: 25,
-      display: "inline-block",
     },
   })
 );
@@ -243,7 +245,7 @@ const MobileApp = (props: any) => {
       action: "juniorbank_appstore",
     });
     window.open(
-      "https://apps.apple.com/kz/app/starbanking/id743617904",
+      "https://apps.apple.com/kz/app/juniorbank-by-bankcentercredit/id1514548493",
       "_blank"
     );
   };
@@ -254,7 +256,7 @@ const MobileApp = (props: any) => {
       action: "juniorbank_googleplay",
     });
     window.open(
-      "https://apps.apple.com/kz/app/starbanking/id743617904",
+      "https://play.google.com/store/apps/details?id=kz.bcc.juniorbank&hl=ru",
       "_blank"
     );
   };

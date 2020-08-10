@@ -1,8 +1,8 @@
-import React from 'react';
-import { makeStyles, Theme, withStyles } from '@material-ui/core/styles';
-import { Paper, Tab, Tabs } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
-import SwipeableViews from 'react-swipeable-views';
+import React from "react";
+import { makeStyles, Theme, withStyles } from "@material-ui/core/styles";
+import { Paper, Tab, Tabs } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
+import SwipeableViews from "react-swipeable-views";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -30,22 +30,28 @@ function TabPanel(props: TabPanelProps) {
 function a11yProps(index: any) {
   return {
     id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: theme.palette.background.paper,
   },
   tab: {
-    fontStyle: 'normal',
+    fontStyle: "normal",
     fontWeight: 500,
-    fontSize: '16px',
-    lineHeight: '24px',
-    textTransform: 'none'
-  }
+    fontSize: "16px",
+    lineHeight: "24px",
+    textTransform: "none",
+    "& > span": {
+      flexDirection: "row",
+      "& > img": {
+        marginRight: 8,
+      },
+    },
+  },
 }));
 
 interface StyledTabsProps {
@@ -55,22 +61,26 @@ interface StyledTabsProps {
 
 const StyledTabs = withStyles({
   root: {
-    borderBottom: '1px solid #C4C4C4'
-  },
-  indicator: {
-    display: 'flex',
-    justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
-    '& > div': {
-      width: '100%',
-      backgroundColor: '#2D72E5',
+    borderBottom: "1px solid #C4C4C4",
+    "& > div": {
+      "& > div": { overflow: "auto" },
     },
   },
-})((props: StyledTabsProps) => <Tabs {...props} TabIndicatorProps={{ children: <div /> }} />);
-
+  indicator: {
+    display: "flex",
+    justifyContent: "center",
+    backgroundColor: "#FFFFFF",
+    "& > div": {
+      width: "100%",
+      backgroundColor: "#2D72E5",
+    },
+  },
+})((props: StyledTabsProps) => (
+  <Tabs {...props} TabIndicatorProps={{ children: <div /> }} />
+));
 
 interface SimpleTabsProps {
-  menuTitle: Array<string>;
+  menuTitle: Array<any>;
   pans: Array<React.ReactNode>;
   onHandleChanged: Function;
 }
@@ -92,22 +102,22 @@ export default function SimpleTabs(props: SimpleTabsProps) {
     <div className={classes.root}>
       <Paper elevation={0} square={true}>
         <StyledTabs value={value} onChange={handleChange}>
-          {
-            props.menuTitle.map((m, i) =>
-              <Tab key={i} label={m} {...a11yProps(i)} className={classes.tab} />)
-          }
+          {props.menuTitle.map((m, i) => (
+            <Tab key={i} label={m} {...a11yProps(i)} className={classes.tab} />
+          ))}
         </StyledTabs>
       </Paper>
 
       <SwipeableViews
-        axis={'x'}
+        axis={"x"}
         index={value}
-        onChangeIndex={handleChangeIndex}>
-        {props.pans.map((m, i) =>
+        onChangeIndex={handleChangeIndex}
+      >
+        {props.pans.map((m, i) => (
           <TabPanel key={i} value={value} index={i}>
             {m}
           </TabPanel>
-        )}
+        ))}
       </SwipeableViews>
     </div>
   );

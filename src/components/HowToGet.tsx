@@ -1,229 +1,272 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-import {
-  BccTypography,
-  BccLink,
-  BccButton,
-  BccStepLabel,
-  BccStepper,
-  BccStep,
-} from "./BccComponents";
+import { BccTypography, BccLink, BccButton } from "./BccComponents";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import ReactGA from "react-ga";
-import { useTranslation } from "react-i18next";
+import { animateScroll } from "react-scroll";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    [theme.breakpoints.down("sm")]: {
-      container: {
-        margin: "0 auto",
-        boxSizing: "border-box",
-        padding: "40px 20px",
-      },
-      title: {
-        marginBottom: 30,
-      },
-      subitle: {
-        marginBottom: 30,
-      },
-      star: {
-        width: "100%",
-        margin: "0 auto",
-        marginBottom: 50,
-        "& > div:last-child": { textAlign: "left" },
-        "& > div": {
-          width: "50%",
-          textAlign: "center",
-          "&  > img": {
-            width: "70%",
-            margin: "0 auto",
-          },
-          "&  > video": {
-            width: "70%",
-            margin: "0 auto",
-          },
-        },
-      },
-      starBlock2: {
-        alignSelf: "center",
-      },
-      starBusiness: {
-        color: "#2D72E5",
-        marginBottom: 10,
-      },
-      starSteps: {
-        marginBottom: 10,
-        "& > span": {
-          color: "#2D72E5",
-        },
-      },
-      lastSetp: {
-        marginBottom: 50,
-      },
-      lOut: {
-        flexWrap: "wrap",
-        flexDirection: "column",
-        alignItems: "center",
-        "& > div": {
-          width: "100%",
-        },
-      },
-      qr: {
-        "& > img": {
-          width: "50%",
-        },
-      },
-      mobileLinks: {
-        marginRight: 6,
-        "& > a:last-child": {
-          marginBottom: 0,
-        },
-        "& > a": {
-          display: "block",
-          marginBottom: 12,
-          width: 120,
-          "& > img": {
-            display: "block",
-            width: 120,
-          },
-        },
-      },
-      stepper: {
-        padding: "40px 0 60px",
-      },
-      nextBtn: {
-        minWidth: 250,
-        marginLeft: 12,
-      },
-      instructions: {
-        minWidth: 250,
-        textAlign: "center",
-      },
-      anim: {
-        transition: "all 1s ease-in",
-      },
-    },
     [theme.breakpoints.between("md", "xl")]: {
       container: {
         maxWidth: 1280,
         margin: "0 auto 140px",
-        paddingTop: 30,
         boxSizing: "border-box",
+        position: "relative",
+        display: "flex",
+        padding: "0 56px",
       },
-      title: {
-        marginBottom: 30,
+      stepsMob: {
+        display: "none",
       },
-      subitle: {
-        marginBottom: 30,
-      },
-      star: {
-        width: "80%",
-        margin: "0 auto",
-        alignItems: "center",
-        minHeight: 400,
-        marginBottom: 50,
-        "& > div:last-child": { textAlign: "left" },
-        "& > div": {
-          width: "50%",
-          textAlign: "center",
-          "&  > img": {
-            maxHeight: 400,
-          },
-          "&  > video": {
-            maxHeight: 400,
-            width: "auto",
-          },
-        },
-      },
-      starBlock2: {
-        alignSelf: "center",
-      },
-      starBusiness: {
-        color: "#2D72E5",
-        marginBottom: 10,
-      },
-      starSteps: {
-        marginBottom: 100,
-        "& > span": {
-          color: "#2D72E5",
-        },
-      },
-      lastSetp: {
-        marginBottom: 50,
-      },
-      lOut: {
-        alignItems: "center",
-        flexWrap: "wrap",
-        "& > div": {
-          width: "auto",
-        },
-      },
-      qr: {
-        "& > img": {
-          width: "100px",
-        },
-      },
-      mobileLinks: { marginRight: 50 },
       stepper: {
-        padding: "40px 0 60px",
-      },
-      backButton: {
-        minWidth: 250,
-        textTransform: "capitalize!important",
-      },
-      nextBtn: {
-        minWidth: 250,
-        marginLeft: 12,
-        backgroundColor: "#2D72E5!important",
-        transition: "all .5s ease",
-        "&:hover": {
-          opacity: 0.5,
+        display: "flex",
+        position: "absolute",
+        top: 160,
+        left: "inherit",
+        flexDirection: "column",
+        alignItems: "center",
+        "& > div": {
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          position: "absolute",
+          width: 18,
+          "& > div:nth-child(2n)": {
+            height: 120,
+            backgroundColor: "#E6EAF0",
+            width: 3,
+          },
+          "& > div.active:nth-child(2n)": {
+            height: 120,
+            backgroundColor: "#2D72E5",
+            width: 3,
+          },
+          "& > div:nth-child(2n+1)": {
+            width: 18,
+            height: 18,
+            border: "3px solid #E6EAF0",
+            boxSizing: "border-box",
+            borderRadius: 9,
+          },
+          "& > div.active:nth-child(2n+1)": {
+            border: "none",
+            backgroundColor: "#2D72E5",
+          },
         },
       },
-      instructions: {
-        minWidth: 250,
-        textAlign: "center",
+      stepText: {
+        width: "100%",
+        padding: "0 612px 160px 63px",
+        display: "flex",
+        marginTop: 160,
+        flexDirection: "column",
+        boxSizing: "border-box",
+        "& > div": {
+          display: "flex",
+          flexDirection: "column",
+          marginBottom: 120,
+          "& > span:first-child": {
+            display: "inline-block",
+            width: 34,
+            height: 34,
+            backgroundColor: "#D7E6FF",
+            borderRadius: 17,
+            color: "#2D72E5",
+            marginBottom: 10,
+            textAlign: "center",
+            lineHeight: "34px",
+            fontSize: 16,
+            fontWeight: "bold",
+          },
+        },
       },
-      anim: {
-        transition: "all 1s ease-in",
+      link: {
+        color: "#2D72E5",
+        textDecoration: "underline",
+        cursor: "pointer",
       },
-      as: {
-        marginBottom: 25,
-        display: "inline-block",
+      appLinks: {
+        "& > div": {
+          width: 160,
+          marginRight: 40,
+          "& > img:first-child": {
+            marginBottom: 10,
+          },
+          "& > img": {
+            width: "100%",
+          },
+        },
+        "& > img": {
+          width: 100,
+        },
+      },
+      stepGif: {
+        position: "absolute",
+        right: 40,
+        top: 40,
+        width: 600,
+        height: 600,
+        "& > div": {
+          width: "inherit",
+          height: "inherit",
+          backgroundColor: "#FED832",
+          borderRadius: "50%",
+          transition: "all .7s ease",
+        },
+      },
+      fixedGif: {
+        position: "fixed",
+        top: 40,
+      },
+      fixedGifBot: {
+        position: "absolute",
+        top: "auto",
+        bottom: 40,
+      },
+      fixed: {
+        position: "fixed!important",
+        top: 160,
+      },
+      fixedBot: {
+        position: "absolute",
+        left: "inherit",
+        top: "auto",
+        bottom: 520,
       },
     },
-    link: {
-      color: "#2D72E5",
-      display: "block",
-      textDecoration: "underline",
-      cursor: "pointer",
+    [theme.breakpoints.down("sm")]: {
+      container: {
+        maxWidth: 1280,
+        margin: "0 auto 140px",
+        boxSizing: "border-box",
+        position: "relative",
+        display: "flex",
+        padding: "0 28px",
+      },
+      stepper: {
+        display: "none",
+      },
+      stepText: {
+        display: "none",
+      },
+      link: {
+        color: "#2D72E5",
+        textDecoration: "underline",
+        cursor: "pointer",
+      },
+      appLinks: {
+        "& > div": {
+          width: 160,
+          marginRight: 40,
+          "& > img:first-child": {
+            marginRight: 24,
+            width: 160,
+          },
+          "& > img": {
+            width: 160,
+          },
+        },
+      },
+      stepGif: {
+        display: "none",
+      },
+      stepsMob: {
+        display: "flex",
+        flexDirection: "column",
+        "& > div": {
+          textAlign: "center",
+          marginBottom: 64,
+          "& > div:first-child": {
+            width: 600,
+            height: 600,
+            textAlign: "center",
+            margin: "0 auto",
+            marginBottom: 24,
+            "& > div": {
+              width: "inherit",
+              height: "inherit",
+              backgroundColor: "#FED832",
+              borderRadius: "50%",
+              transition: "all .7s ease",
+            },
+          },
+          "& > span:nth-child(2)": {
+            display: "inline-block",
+            width: 34,
+            height: 34,
+            backgroundColor: "#D7E6FF",
+            borderRadius: 17,
+            color: "#2D72E5",
+            marginBottom: 10,
+            textAlign: "center",
+            lineHeight: "34px",
+            fontSize: 16,
+            fontWeight: "bold",
+          },
+        },
+      },
     },
-    jc: {
-      maxWidth: 400,
+    [theme.breakpoints.down("xs")]: {
+      container: {
+        padding: "0 12px",
+      },
+      stepsMob: {
+        "& > div": {
+          "& > div:first-child": {
+            width: "100%",
+          },
+        },
+      },
     },
   })
 );
 
 const HowToGet = (props: any) => {
-  const steps1 = [1, 2, 3, 4, 5];
-  const steps2 = [1, 2, 3, 4, 5, 6];
   const classes = useStyles({});
-  const [activeStep, setActiveStep] = React.useState(1);
-  const [steps, setActiveSteps] = React.useState(steps1);
-  const [toggle, setToggle] = React.useState("ip");
-  const { t } = useTranslation();
+  const steps = [0, 1, 2];
+  const [active, setActive] = React.useState(0);
+  const [fixed, setFixed] = React.useState(false);
+  const [fixedBot, setFixedBot] = React.useState(false);
+  const step1Ref: any = React.useRef(null);
+  const step2Ref: any = React.useRef(null);
+  const step3Ref: any = React.useRef(null);
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(1);
-  };
+  // const scrollToOrderRef = () => {
+  //   animateScroll.scrollTo(orderRef.current.offsetTop);
+  // };
+  React.useEffect(() => {
+    window.document.addEventListener("scroll", (d) => {
+      const blockHeight =
+        step1Ref.current.offsetHeight +
+        step2Ref.current.offsetHeight +
+        step3Ref.current.offsetHeight;
+      if (
+        window.scrollY >=
+        step1Ref.current.offsetParent?.offsetTop + blockHeight
+      ) {
+        setFixed(false);
+        setFixedBot(true);
+      } else if (window.scrollY >= step1Ref.current.offsetParent?.offsetTop) {
+        {
+          setFixed(true);
+          setFixedBot(false);
+        }
+      } else {
+        setFixed(false);
+        setFixedBot(false);
+      }
+      window.scrollY >=
+      step1Ref.current.offsetParent?.offsetTop +
+        step1Ref.current.offsetHeight +
+        step2Ref.current.offsetHeight
+        ? setActive(2)
+        : window.scrollY >=
+          step1Ref.current.offsetParent?.offsetTop + step1Ref.current.offsetTop
+        ? setActive(1)
+        : setActive(0);
+    });
+  });
 
   const onClickAS = (e: any) => {
     e.preventDefault();
@@ -249,219 +292,185 @@ const HowToGet = (props: any) => {
     );
   };
 
-  function getStepContent(stepIndex: number) {
-    switch (stepIndex) {
-      case 1:
-        return (
-          <Grid
-            container
-            direction="row"
-            justify="space-between"
-            className={classes.star}
-          >
-            <Grid item>
-              <img src={process.env.PUBLIC_URL + "/step1.svg"} alt="BCC.KZ" />
-            </Grid>
-            <Grid item className={classes.starBlock2}>
-              <BccTypography type="h4" block className={classes.starBusiness}>
-                BCC.KZ
-              </BccTypography>
-              <BccTypography type="p2" block className={classes.starSteps}>
-                Скачайте мобильное приложение «bcc.kz»
-              </BccTypography>
-              <Grid
-                container
-                justify="flex-start"
-                direction="row"
-                className={classes.lOut}
-                wrap="nowrap"
-              >
-                <Grid item className={classes.mobileLinks}>
-                  <span
-                    className={`${classes.link} ${classes.as}`}
-                    onClick={(e: any) => onClickAS(e)}
-                  >
-                    <img src={process.env.PUBLIC_URL + "/as.svg"} />
-                  </span>
-                  <span
-                    className={classes.link}
-                    onClick={(e: any) => onClickGP(e)}
-                  >
-                    <img src={process.env.PUBLIC_URL + "/gp.svg"} />
-                  </span>
-                </Grid>
-                <Grid item className={classes.qr}>
-                  <img src={process.env.PUBLIC_URL + "/qr.svg"} />
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-        );
-      case 2:
-        return (
-          <Grid
-            container
-            direction="row"
-            justify="space-between"
-            className={classes.star}
-          >
-            <Grid item>
-              <img src={process.env.PUBLIC_URL + "/step2.svg"} alt="Step2" />
-            </Grid>
-            <Grid item className={classes.starBlock2}>
-              <BccTypography type="h4" block className={classes.starBusiness}>
-                Cтаньте клиентом
-              </BccTypography>
-              <BccTypography type="p2" block className={classes.starSteps}>
-                Станьте клиентом банка, зарегистрировавшись в bcc.kz
-                дистанционно или
-                <br />
-                придите в любое отделение банка
-              </BccTypography>
-            </Grid>
-          </Grid>
-        );
-      case 3:
-        return (
-          <Grid
-            container
-            direction="row"
-            justify="space-between"
-            className={classes.star}
-          >
-            <Grid item>
-              <img
-                className={classes.jc}
-                src={process.env.PUBLIC_URL + "/juniorcard.svg"}
-                alt="Step3"
-              />
-            </Grid>
-            <Grid item className={classes.starBlock2}>
-              <BccTypography type="h4" block className={classes.starBusiness}>
-                Подать заявку
-              </BccTypography>
-              <BccTypography type="p2" block className={classes.starSteps}>
-                Подайте заявку на выпуск виртуальной карты Junior
-                <br />
-                или
-                <br />
-                откройте пластиковую карту мгновенного выпуска в отделении
-              </BccTypography>
-            </Grid>
-          </Grid>
-        );
-      case 4:
-        return (
-          <Grid
-            container
-            direction="row"
-            justify="space-between"
-            className={classes.star}
-          >
-            <Grid item>
-              <img src={process.env.PUBLIC_URL + "/step4.svg"} alt="Step5" />
-            </Grid>
-            <Grid item className={classes.starBlock2}>
-              <BccTypography type="h4" block className={classes.starBusiness}>
-                Приложение Junior Bank
-              </BccTypography>
-              <BccTypography type="p2" block className={classes.starSteps}>
-                Установите на смартфон ребенка детское мобильное приложение
-                Junior Bank по ссылке направленной банком на номер ребенка
-              </BccTypography>
-            </Grid>
-          </Grid>
-        );
-      case 5:
-        return (
-          <Grid
-            container
-            direction="row"
-            justify="space-between"
-            className={classes.star}
-          >
-            <Grid item>
-              <img src={process.env.PUBLIC_URL + "/step5.svg"} alt="Step5" />
-            </Grid>
-            <Grid item className={classes.starBlock2}>
-              <BccTypography type="h4" block className={classes.starBusiness}>
-                Apple Pay / Samsung Pay
-              </BccTypography>
-              <BccTypography type="p2" block className={classes.starSteps}>
-                Привяжите виртуальную карту Junior к Apple Pay/ Samsung Pay и
-                платите смартфоном
-                <br />
-                или
-                <br />
-                пластиковой картой Junior выпущенной в отделении Банка.
-              </BccTypography>
-            </Grid>
-          </Grid>
-        );
-      default:
-        return "Ошибка";
-    }
-  }
-
   return (
     <div className={classes.container} ref={props.refProp}>
-      <BccTypography type="h2" block className={classes.title}>
-        Как заказать карту?
-      </BccTypography>
-      <BccTypography
-        type="h6"
-        weight="normal"
-        block
-        className={classes.subitle}
+      <div className={`${classes.stepper} ${fixedBot ? classes.fixedBot : ""}`}>
+        <div className={fixed ? classes.fixed : ""}>
+          {steps.map((s: any) => {
+            if (s === active && s < steps.length - 1)
+              return (
+                <>
+                  <div onClick={() => setActive(s)} className="active"></div>
+                  <div></div>
+                </>
+              );
+            if (s === active && s === steps.length - 1)
+              return (
+                <>
+                  <div onClick={() => setActive(s)} className="active"></div>
+                </>
+              );
+            else if (s < active && s < steps.length - 1)
+              return (
+                <>
+                  <div onClick={() => setActive(s)} className="active"></div>
+                  <div className="active"></div>
+                </>
+              );
+            else if (s < steps.length - 1)
+              return (
+                <>
+                  <div onClick={() => setActive(s)}></div>
+                  <div></div>
+                </>
+              );
+            else return <div onClick={() => setActive(s)}></div>;
+          })}
+        </div>
+      </div>
+      <div className={classes.stepText}>
+        <div ref={step1Ref}>
+          <span>1</span>
+          <BccTypography color="#2D72E5" type="h4" block mb="16px">
+            Закажите карту
+          </BccTypography>
+          <BccTypography type="p2l" block mb="40px">
+            Откройте виртуальную детскую карту в приложении BCC.KZ или
+            пластиковую в любом отделении банка
+          </BccTypography>
+          <Grid container wrap="nowrap" className={classes.appLinks}>
+            <Grid item container direction="column">
+              <img
+                src={process.env.PUBLIC_URL + "/as.svg"}
+                onClick={(e: any) => onClickAS(e)}
+              />
+              <img
+                src={process.env.PUBLIC_URL + "/gp.svg"}
+                onClick={(e: any) => onClickGP(e)}
+              />
+            </Grid>
+            <img src={process.env.PUBLIC_URL + "/qr.svg"} />
+          </Grid>
+          <BccTypography type="p2l" block mt="16px">
+            Скачайте приложение BCC.KZ в App Store, Google Play или наведите
+            камеру телефона на QR код
+          </BccTypography>
+        </div>
+        <div ref={step2Ref}>
+          <span>2</span>
+          <BccTypography color="#2D72E5" type="h4" block mb="16px">
+            Установите приложение Junior Bank на телефон ребёнка
+          </BccTypography>
+          <BccTypography type="p2l" block mb="36px">
+            Как только откроется детская карта на телефонный номер ребенка
+            придет СМС с ссылкой на скачивание приложения.
+          </BccTypography>
+          <BccTypography type="p2l" block>
+            С помощью приложения{" "}
+            <a href="#" target="_blank" className={classes.link}>
+              Junior Bank
+            </a>{" "}
+            ребёнок сможет начать пользоваться картой и отслеживать свои траты.
+          </BccTypography>
+        </div>
+        <div ref={step3Ref}>
+          <span>3</span>
+          <BccTypography color="#2D72E5" type="h4" block mb="16px">
+            Привяжите карту к Apple Pay или Samsung Pay
+          </BccTypography>
+          <BccTypography type="p2l" block>
+            Ребёнок со смартфоном, с функцией бесконтактных платежей, сможет
+            безопасно оплачивать свои покупки
+          </BccTypography>
+        </div>
+      </div>
+      <div
+        className={`${classes.stepGif} ${fixedBot ? classes.fixedGifBot : ""}`}
       >
-        Предлагаем воспользоваться пошаговой инструкцией для открытия счёта:
-      </BccTypography>
-      <BccStepper activeStep={activeStep} className={classes.stepper}>
-        {steps.map((label) => (
-          <BccStep key={`step${label}`}>
-            <BccStepLabel>
-              <BccTypography type="p4">Шаг {label}</BccTypography>
-            </BccStepLabel>
-          </BccStep>
-        ))}
-      </BccStepper>
-      <div>
+        <div
+          className={fixed ? classes.fixedGif : ""}
+          style={{
+            background: `url(/1-step.gif) no-repeat center bottom`,
+          }}
+        ></div>
+      </div>
+      <div className={classes.stepsMob}>
         <div>
-          <div className={classes.anim}>{getStepContent(activeStep)}</div>
-          {activeStep === steps.length ? (
-            <div>
-              <BccTypography type="p2" className={classes.instructions}>
-                Все завершено!
-              </BccTypography>
-              <BccButton
-                variant="contained"
-                color="primary"
-                onClick={handleReset}
-                className={classes.nextBtn}
-              >
-                К началу
-              </BccButton>
-            </div>
-          ) : (
-            <div>
-              <BccButton
-                variant="text"
-                disabled={activeStep === 1}
-                onClick={handleBack}
-                className={classes.backButton}
-              >
-                Назад
-              </BccButton>
-              <BccButton
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-                className={classes.nextBtn}
-              >
-                {activeStep === steps.length ? "Завершить" : "Далее"}
-              </BccButton>
-            </div>
-          )}
+          <div>
+            <div
+              className={classes.stepImg}
+              style={{
+                background: `url(/${active +
+                  1}-step.gif) no-repeat center bottom`,
+              }}
+            ></div>
+          </div>
+          <span>1</span>
+          <BccTypography color="#2D72E5" type="h4" block mb="16px">
+            Закажите карту
+          </BccTypography>
+          <BccTypography type="p2l" block mb="40px">
+            Откройте виртуальную детскую карту в приложении BCC.KZ или
+            пластиковую в любом отделении банка
+          </BccTypography>
+          <Grid
+            container
+            justify="center"
+            wrap="nowrap"
+            className={classes.appLinks}
+          >
+            <img
+              src={process.env.PUBLIC_URL + "/as.svg"}
+              onClick={(e: any) => onClickAS(e)}
+            />
+            <img
+              src={process.env.PUBLIC_URL + "/gp.svg"}
+              onClick={(e: any) => onClickGP(e)}
+            />
+          </Grid>
+        </div>
+        <div>
+          <div>
+            <div
+              className={classes.stepImg}
+              style={{
+                background: `url(/2-step.gif) no-repeat center bottom`,
+              }}
+            ></div>
+          </div>
+          <span>2</span>
+          <BccTypography color="#2D72E5" type="h4" block mb="16px">
+            Установите приложение Junior Bank на телефон ребёнка
+          </BccTypography>
+          <BccTypography type="p2l" block mb="36px">
+            Как только откроется детская карта на телефонный номер ребенка
+            придет СМС с ссылкой на скачивание приложения.
+          </BccTypography>
+          <BccTypography type="p2l" block>
+            С помощью приложения{" "}
+            <a href="#" target="_blank" className={classes.link}>
+              Junior Bank
+            </a>{" "}
+            ребёнок сможет начать пользоваться картой и отслеживать свои траты.
+          </BccTypography>
+        </div>
+        <div>
+          <div>
+            <div
+              className={classes.stepImg}
+              style={{
+                background: `url(/3-step.gif) no-repeat center bottom`,
+              }}
+            ></div>
+          </div>
+          <span>3</span>
+          <BccTypography color="#2D72E5" type="h4" block mb="16px">
+            Привяжите карту к Apple Pay или Samsung Pay
+          </BccTypography>
+          <BccTypography type="p2l" block>
+            Ребёнок со смартфоном, с функцией бесконтактных платежей, сможет
+            безопасно оплачивать свои покупки
+          </BccTypography>
         </div>
       </div>
     </div>

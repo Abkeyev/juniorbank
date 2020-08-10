@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme: Theme) =>
       root: {
         maxWidth: 1280,
         margin: "0 auto",
-        padding: "0 56px 85px",
+        padding: "0 56px 120px",
       },
       title: {
         marginBottom: 30,

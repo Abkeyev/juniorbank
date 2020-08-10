@@ -221,7 +221,7 @@ const HelpYou = () => {
       <Grid container className={classes.root} spacing={4} justify="center">
         <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
           <BccTypography type="h2" block className={classes.title}>
-            Возникли вопросы, звони
+            Возникли вопросы, обращайтесь
           </BccTypography>
         </Grid>
         <Grid
@@ -261,7 +261,11 @@ const HelpYou = () => {
             onClick={() => onClickCallMB()}
           >
             <Typography className={classes.phoneText}>
-              <PhoneAndroid className={classes.phone} /> 8 (727) 244 30 30
+              <img
+                src={process.env.PUBLIC_URL + "/phone.svg"}
+                className={classes.phone}
+              />{" "}
+              8 (727) 244 30 30
             </Typography>
           </Box>
         </Grid>
