@@ -9,9 +9,15 @@ import {
 } from "@material-ui/core";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Tab from "./Tab";
-import { BccTypography } from "../BccComponents";
+import {
+  BccTypography,
+  BccInput,
+  BccCollapseTitle,
+  BccCollapsePanel,
+  BccCollapseDetails,
+} from "../BccComponents";
 import ReactGA from "react-ga";
-import { useTranslation } from "react-i18next";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const useStylesTarifs = makeStyles((theme: Theme) =>
   createStyles({
@@ -53,6 +59,7 @@ const useStylesTarifs = makeStyles((theme: Theme) =>
         widthh: "70%",
       },
       TableWW: {
+        paddingTop: 12,
         "& tr > td:nth-child(2)": {
           width: "50%",
         },
@@ -63,7 +70,6 @@ const useStylesTarifs = makeStyles((theme: Theme) =>
 
 const Benefits = () => {
   const classes = useStylesTarifs({});
-  const { t } = useTranslation();
 
   const rows = [
     {
@@ -114,7 +120,6 @@ const Benefits = () => {
 
 const Faq = () => {
   const classes = useStylesTarifs({});
-  const { t } = useTranslation();
 
   const rows = [
     {
@@ -200,29 +205,26 @@ const Faq = () => {
 
   return (
     <Box className={classes.TableWW}>
-      <Table>
-        <TableBody>
-          {rows.map((m, i) => (
-            <TableRow key={i}>
-              <TableCell className={classes.th} style={{ width: "30%" }}>
-                {m.code}
-              </TableCell>
-              <TableCell
-                className={classes.td}
-                style={{ width: "70%" }}
-                dangerouslySetInnerHTML={{ __html: m.value }}
-              />
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      {rows.map((m, i) => (
+        <BccCollapsePanel>
+          <BccCollapseTitle expandIcon={<ExpandMoreIcon />}>
+            <BccTypography type="p2">
+              <div dangerouslySetInnerHTML={{ __html: m.code }} />
+            </BccTypography>
+          </BccCollapseTitle>
+          <BccCollapseDetails>
+            <BccTypography type="p2">
+              <div dangerouslySetInnerHTML={{ __html: m.value }} />
+            </BccTypography>
+          </BccCollapseDetails>
+        </BccCollapsePanel>
+      ))}
     </Box>
   );
 };
 
 const Tarifs = () => {
   const classes = useStylesTarifs({});
-  const { t } = useTranslation();
 
   const rows = [
     {
@@ -277,7 +279,6 @@ const Tarifs = () => {
 
 const Development = () => {
   const classes = useStylesTarifs({});
-  const { t } = useTranslation();
 
   return (
     <Grid container justify="center" alignItems="center">
@@ -328,7 +329,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const AdditionalInfo = () => {
   const classes = useStyles({});
-  const { t } = useTranslation();
 
   const swipeTab = (index: number) => {
     const actionName =

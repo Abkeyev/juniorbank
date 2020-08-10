@@ -9,3 +9,7 @@ export { default as BccStepIcon } from "./BccStepper/BccStepIcon/BccStepIcon";
 export { default as BccStepLabel } from "./BccStepper/BccStepLabel/BccStepLabel";
 export { default as BccStepConnector } from "./BccStepper/BccStepConnector/BccStepConnector";
 export { default as BccLink } from "./BccLink/BccLink";
+// Collapse
+export { default as BccCollapsePanel } from "./BccCollapse/BccCollapsePanel/BccCollapsePanel";
+export { default as BccCollapseTitle } from "./BccCollapse/BccCollapseTitle/BccCollapseTitle";
+export { default as BccCollapseDetails } from "./BccCollapse/BccCollapseDetails/BccCollapseDetails";

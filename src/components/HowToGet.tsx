@@ -232,9 +232,6 @@ const HowToGet = (props: any) => {
   const step2Ref: any = React.useRef(null);
   const step3Ref: any = React.useRef(null);
 
-  // const scrollToOrderRef = () => {
-  //   animateScroll.scrollTo(orderRef.current.offsetTop);
-  // };
   React.useEffect(() => {
     window.document.addEventListener("scroll", (d) => {
       const blockHeight =
