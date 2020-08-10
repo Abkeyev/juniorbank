@@ -310,6 +310,7 @@ const useStyles = makeStyles((theme: Theme) =>
     [theme.breakpoints.between("sm", "xl")]: {
       root: {
         maxWidth: 1280,
+        padding: "0 32px",
         margin: "0 auto",
         marginBottom: 40,
         position: "relative",

@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
     [theme.breakpoints.between("md", "xl")]: {
       container: {
         maxWidth: 1280,
-        margin: "0 auto 140px",
+        margin: "0 auto",
         boxSizing: "border-box",
         position: "relative",
         display: "flex",
@@ -138,7 +138,7 @@ const useStyles = makeStyles((theme: Theme) =>
     [theme.breakpoints.down("sm")]: {
       container: {
         maxWidth: 1280,
-        margin: "0 auto 140px",
+        margin: "0 auto",
         boxSizing: "border-box",
         position: "relative",
         display: "flex",
@@ -390,7 +390,7 @@ const HowToGet = (props: any) => {
         <div
           className={fixed ? classes.fixedGif : ""}
           style={{
-            background: `url(/1-step.gif) no-repeat center bottom`,
+            background: `url(/${active + 1}-step.gif) no-repeat center bottom`,
           }}
         ></div>
       </div>
