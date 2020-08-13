@@ -25,17 +25,23 @@ const useStylesTarifs = makeStyles((theme: Theme) =>
       th: {
         fontStyle: "normal",
         fontWeight: "normal",
-        fontSize: 10,
+        fontSize: 14,
         color: "#898989",
       },
       td: {
         fontStyle: "normal",
         fontWeight: "normal",
-        fontSize: 10,
+        fontSize: 14,
         color: "black",
       },
       TableW: {
         widthh: "100%",
+      },
+      TableWW: {
+        paddingTop: 12,
+        "& span": {
+          fontSize: 14,
+        },
       },
     },
     [theme.breakpoints.between("sm", "xl")]: {
@@ -60,9 +66,6 @@ const useStylesTarifs = makeStyles((theme: Theme) =>
       },
       TableWW: {
         paddingTop: 12,
-        "& tr > td:nth-child(2)": {
-          width: "50%",
-        },
       },
     },
   })
@@ -283,7 +286,10 @@ const Development = () => {
   return (
     <Grid container justify="center" alignItems="center">
       <Grid item style={{ margin: "100px 0" }}>
-        <img src={process.env.PUBLIC_URL + "/dev.svg"} />
+        <img
+          style={{ width: "100%" }}
+          src={process.env.PUBLIC_URL + "/dev.svg"}
+        />
       </Grid>
     </Grid>
   );

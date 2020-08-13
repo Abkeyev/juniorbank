@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
         padding: "32px 16px",
         "& > img": {
           position: "relative",
-          width: "70%",
+          width: "85%",
           animation: "$cardMode 2s alternate infinite",
         },
       },

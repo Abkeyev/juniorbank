@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       title: {
         marginBottom: 32,
-        fontSize: 32,
+        fontSize: 28,
         fontWeight: "bold",
         lineHeight: 1,
       },
@@ -225,11 +225,20 @@ const useStyles = makeStyles((theme: Theme) =>
         display: "inline-block",
       },
     },
+    [theme.breakpoints.down("xs")]: {
+      link: {
+        maxWidth: 100,
+      },
+    },
     link: {
       color: "#2D72E5",
       display: "block",
       textDecoration: "underline",
       cursor: "pointer",
+      maxWidth: 150,
+      "& > img": {
+        width: "100%",
+      },
     },
   })
 );

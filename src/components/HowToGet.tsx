@@ -3,7 +3,7 @@ import { Grid } from "@material-ui/core";
 import { BccTypography, BccLink, BccButton } from "./BccComponents";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import ReactGA from "react-ga";
-import { animateScroll } from "react-scroll";
+import * as Scroll from "react-scroll";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -107,20 +107,43 @@ const useStyles = makeStyles((theme: Theme) =>
         top: 40,
         width: 600,
         height: 600,
+        borderRadius: "50%",
         "& > div": {
+          overflow: "hidden",
+          position: "absolute",
           width: "inherit",
           height: "inherit",
-          backgroundColor: "#FED832",
           borderRadius: "50%",
-          transition: "all .7s ease",
+          transition: "all .75s ease-out",
+          "& > div": {
+            width: "inherit",
+            height: "inherit",
+            borderRadius: "0",
+            transition: "all .75s ease-out",
+            opacity: 0,
+            transform: "translateY(0)",
+            position: "absolute",
+          },
+          "& > div.active": {
+            opacity: 1,
+            transform: "translateY(0)",
+          },
+          "& > div.notActiveTop": {
+            opacity: 0,
+            transform: "translateY(-600px)",
+          },
+          "& > div.notActiveBot": {
+            opacity: 0,
+            transform: "translateY(600px)",
+          },
         },
       },
       fixedGif: {
-        position: "fixed",
+        position: "fixed!important",
         top: 40,
       },
       fixedGifBot: {
-        position: "absolute",
+        position: "absolute!important",
         top: "auto",
         bottom: 40,
       },
@@ -129,7 +152,7 @@ const useStyles = makeStyles((theme: Theme) =>
         top: 160,
       },
       fixedBot: {
-        position: "absolute",
+        position: "absolute!important",
         left: "inherit",
         top: "auto",
         bottom: 520,
@@ -225,12 +248,55 @@ const useStyles = makeStyles((theme: Theme) =>
 const HowToGet = (props: any) => {
   const classes = useStyles({});
   const steps = [0, 1, 2];
-  const [active, setActive] = React.useState(0);
+  const [active, setActiveStep] = React.useState(0);
+  const [prevActive, setPrevActive] = React.useState(0);
   const [fixed, setFixed] = React.useState(false);
   const [fixedBot, setFixedBot] = React.useState(false);
   const step1Ref: any = React.useRef(null);
   const step2Ref: any = React.useRef(null);
   const step3Ref: any = React.useRef(null);
+
+  const scrollToStep = (n: number) => {
+    if (n === 0) {
+      return window.scrollY === step1Ref.current.offsetParent?.offsetTop
+        ? {}
+        : Scroll.animateScroll.scrollTo(
+            step1Ref.current.offsetParent?.offsetTop
+          );
+    } else if (n === 1) {
+      return window.scrollY ===
+        step1Ref.current.offsetParent?.offsetTop +
+          step2Ref.current.offsetTop -
+          120
+        ? {}
+        : Scroll.animateScroll.scrollTo(
+            step1Ref.current.offsetParent?.offsetTop +
+              step2Ref.current.offsetTop -
+              120
+          );
+    } else if (n === 2) {
+      return window.scrollY ===
+        step1Ref.current.offsetParent?.offsetTop +
+          step1Ref.current.offsetHeight +
+          step2Ref.current.offsetHeight +
+          step3Ref.current.offsetHeight -
+          120
+        ? {}
+        : Scroll.animateScroll.scrollTo(
+            step1Ref.current.offsetParent?.offsetTop +
+              step1Ref.current.offsetHeight +
+              step2Ref.current.offsetHeight +
+              step3Ref.current.offsetHeight -
+              120
+          );
+    }
+    setActive(n);
+  };
+
+  const setActive = (n: number) => {
+    setPrevActive(active);
+    setActiveStep(n);
+  };
 
   React.useEffect(() => {
     window.document.addEventListener("scroll", (d) => {
@@ -242,25 +308,31 @@ const HowToGet = (props: any) => {
         window.scrollY >=
         step1Ref.current.offsetParent?.offsetTop + blockHeight
       ) {
-        setFixed(false);
-        setFixedBot(true);
+        fixed && setFixed(false);
+        !fixedBot && setFixedBot(true);
       } else if (window.scrollY >= step1Ref.current.offsetParent?.offsetTop) {
         {
-          setFixed(true);
-          setFixedBot(false);
+          !fixed && setFixed(true);
+          fixedBot && setFixedBot(false);
         }
       } else {
-        setFixed(false);
-        setFixedBot(false);
+        fixed && setFixed(false);
+        fixedBot && setFixedBot(false);
       }
-      window.scrollY >=
-      step1Ref.current.offsetParent?.offsetTop +
-        step1Ref.current.offsetHeight +
-        step2Ref.current.offsetHeight
-        ? setActive(2)
+      return window.scrollY >=
+        step1Ref.current.offsetParent?.offsetTop +
+          step1Ref.current.offsetHeight +
+          step2Ref.current.offsetHeight
+        ? active === 2
+          ? ""
+          : setActive(2)
         : window.scrollY >=
           step1Ref.current.offsetParent?.offsetTop + step1Ref.current.offsetTop
-        ? setActive(1)
+        ? active === 1
+          ? ""
+          : setActive(1)
+        : active === 0
+        ? ""
         : setActive(0);
     });
   });
@@ -297,31 +369,57 @@ const HowToGet = (props: any) => {
             if (s === active && s < steps.length - 1)
               return (
                 <>
-                  <div onClick={() => setActive(s)} className="active"></div>
+                  <div
+                    onClick={() => {
+                      scrollToStep(s);
+                    }}
+                    className="active"
+                  ></div>
                   <div></div>
                 </>
               );
             if (s === active && s === steps.length - 1)
               return (
                 <>
-                  <div onClick={() => setActive(s)} className="active"></div>
+                  <div
+                    onClick={() => {
+                      scrollToStep(s);
+                    }}
+                    className="active"
+                  ></div>
                 </>
               );
             else if (s < active && s < steps.length - 1)
               return (
                 <>
-                  <div onClick={() => setActive(s)} className="active"></div>
+                  <div
+                    onClick={() => {
+                      scrollToStep(s);
+                    }}
+                    className="active"
+                  ></div>
                   <div className="active"></div>
                 </>
               );
             else if (s < steps.length - 1)
               return (
                 <>
-                  <div onClick={() => setActive(s)}></div>
+                  <div
+                    onClick={() => {
+                      scrollToStep(s);
+                    }}
+                  ></div>
                   <div></div>
                 </>
               );
-            else return <div onClick={() => setActive(s)}></div>;
+            else
+              return (
+                <div
+                  onClick={() => {
+                    scrollToStep(s);
+                  }}
+                ></div>
+              );
           })}
         </div>
       </div>
@@ -385,12 +483,77 @@ const HowToGet = (props: any) => {
         className={`${classes.stepGif} ${fixedBot ? classes.fixedGifBot : ""}`}
       >
         <div
-          className={fixed ? classes.fixedGif : ""}
           style={{
-            background: `url(${process.env.PUBLIC_URL}/${active +
-              1}-step.gif) no-repeat center bottom`,
+            backgroundColor:
+              active === 0 ? "#FED832" : active === 1 ? "#46E2CF" : "#FD7A7F",
           }}
-        ></div>
+          className={fixed ? classes.fixedGif : ""}
+        >
+          {active === 0 ? (
+            <>
+              <div
+                className="active"
+                style={{
+                  background: `url(${process.env.PUBLIC_URL}/1-step.gif) no-repeat center bottom`,
+                }}
+              ></div>
+              <div
+                className="notActiveBot"
+                style={{
+                  background: `url(${process.env.PUBLIC_URL}/2-step.gif) no-repeat center bottom`,
+                }}
+              ></div>
+              <div
+                className="notActiveBot"
+                style={{
+                  background: `url(${process.env.PUBLIC_URL}/3-step.gif) no-repeat center bottom`,
+                }}
+              ></div>
+            </>
+          ) : active === 1 ? (
+            <>
+              <div
+                className="notActiveBot"
+                style={{
+                  background: `url(${process.env.PUBLIC_URL}/1-step.gif) no-repeat center bottom`,
+                }}
+              ></div>
+              <div
+                className="active"
+                style={{
+                  background: `url(${process.env.PUBLIC_URL}/2-step.gif) no-repeat center bottom`,
+                }}
+              ></div>
+              <div
+                className="notActiveBot"
+                style={{
+                  background: `url(${process.env.PUBLIC_URL}/3-step.gif) no-repeat center bottom`,
+                }}
+              ></div>
+            </>
+          ) : (
+            <>
+              <div
+                className="notActiveBot"
+                style={{
+                  background: `url(${process.env.PUBLIC_URL}/1-step.gif) no-repeat center bottom`,
+                }}
+              ></div>
+              <div
+                className="notActiveBot"
+                style={{
+                  background: `url(${process.env.PUBLIC_URL}/2-step.gif) no-repeat center bottom`,
+                }}
+              ></div>
+              <div
+                className="active"
+                style={{
+                  background: `url(${process.env.PUBLIC_URL}/3-step.gif) no-repeat center bottom`,
+                }}
+              ></div>
+            </>
+          )}
+        </div>
       </div>
       <div className={classes.stepsMob}>
         <div>

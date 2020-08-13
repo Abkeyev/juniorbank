@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) =>
         fontWeight: "normal",
         fontSize: 18,
         color: "#5B5B5B",
-        paddingLeft: 56,
+        paddingLeft: 48,
       },
       freeCallText: {
         fontStyle: "normal",
@@ -78,7 +78,6 @@ const useStyles = makeStyles((theme: Theme) =>
         marginRight: 16,
       },
     },
-
     [theme.breakpoints.down("sm")]: {
       root: {
         maxWidth: "100%",
@@ -112,7 +111,7 @@ const useStyles = makeStyles((theme: Theme) =>
         fontWeight: "normal",
         fontSize: 18,
         color: "#5B5B5B",
-        paddingLeft: 56,
+        paddingLeft: 48,
       },
       freeCallText: {
         fontStyle: "normal",
@@ -168,7 +167,7 @@ const useStyles = makeStyles((theme: Theme) =>
         fontStyle: "normal",
         fontWeight: "normal",
         fontSize: 16,
-        paddingLeft: 10,
+        paddingLeft: 0,
       },
       freeCallText: {
         fontSize: 20,

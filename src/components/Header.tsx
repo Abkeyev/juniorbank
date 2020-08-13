@@ -208,7 +208,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       juniorcard: {
         "& > img": {
-          width: "100%",
+          width: "85%",
           margin: "32px auto",
           display: "block",
           maxWidth: "initial",
