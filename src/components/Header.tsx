@@ -102,8 +102,9 @@ const useStyles = makeStyles((theme: Theme) =>
       header: {
         maxWidth: 1280,
         width: "100%",
+        boxSizing: "border-box",
         margin: "0 auto",
-        padding: "45px 56px 120px",
+        padding: "45px 56px 96px",
         zIndex: 99,
         position: "relative",
       },
@@ -116,7 +117,7 @@ const useStyles = makeStyles((theme: Theme) =>
         lineHeght: "140%",
       },
       headerContent: {
-        marginTop: 115,
+        marginTop: 96,
       },
       juniorcard: {
         "& > img": {
@@ -202,13 +203,17 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     [theme.breakpoints.down("xs")]: {
       headerContent: {
-        "& > div": {
-          flexDirection: "column-reverse",
-        },
+        marginTop: 32,
+        textAlign: "center",
+        "& > div": {},
+      },
+      headerSubTitle: {
+        padding: "0 12px",
+        "& > br": { display: "none" },
       },
       juniorcard: {
         "& > img": {
-          width: "85%",
+          width: "100%",
           margin: "32px auto",
           display: "block",
           maxWidth: "initial",
@@ -287,8 +292,7 @@ const Header = (props: any) => {
               </BccTypography>
               <BccTypography type="p2" block className={classes.headerSubTitle}>
                 Первая детская карта.
-                <br />
-                Учит управлять, сохранять, приумножать и зарабатывать.
+                <br /> Учит управлять, сохранять, приумножать и зарабатывать.
               </BccTypography>
               <BccButton
                 variant="contained"

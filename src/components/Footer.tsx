@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
       root: {
         maxWidth: 1280,
         margin: "0 auto",
+        boxSizing: "border-box",
         position: "relative",
         padding: "48px 0",
       },

@@ -132,10 +132,16 @@ const useStyles = makeStyles((theme: Theme) =>
         right: "30%",
         bottom: -30,
       },
+      qrMob: {
+        display: "none",
+      },
     },
     [theme.breakpoints.between("md", "xl")]: {
       rootOutside: {
         position: "relative",
+      },
+      qrMob: {
+        display: "none",
       },
       headerBgPart: {
         position: "absolute",
@@ -169,10 +175,11 @@ const useStyles = makeStyles((theme: Theme) =>
       root: {
         position: "relative",
         maxWidth: 1280,
+        boxSizing: "border-box",
         margin: "0 auto",
         zIndex: 1,
         marginTop: 85,
-        padding: "0 56px 85px",
+        padding: "0 56px 64px",
         color: "white",
       },
       title: {
@@ -228,6 +235,33 @@ const useStyles = makeStyles((theme: Theme) =>
     [theme.breakpoints.down("xs")]: {
       link: {
         maxWidth: 100,
+      },
+      container: {
+        flexDirection: "column",
+      },
+      textBlock: {
+        textAlign: "center",
+      },
+      lOut: {
+        display: "none",
+      },
+      imgBlock: {
+        width: "100%",
+        "& > img": {
+          display: "none",
+        },
+      },
+      qrMob: {
+        display: "block",
+        textAlign: "center",
+        "& > img": {
+          display: "block",
+          margin: "0 auto",
+        },
+        "& > span:nth-child(2)": { marginRight: 16 },
+        "& > span": {
+          display: "inline-block",
+        },
       },
     },
     link: {
@@ -337,6 +371,18 @@ const MobileApp = (props: any) => {
             <Parallax y={[120, 0]} tagOuter="figure">
               <img src={process.env.PUBLIC_URL + "/appBgPart3.svg"} alt="app" />
             </Parallax>
+            <Grid item className={classes.qrMob}>
+              <img src={process.env.PUBLIC_URL + "/mob-qr.png"} alt="app" />
+              <span
+                className={`${classes.link} ${classes.as}`}
+                onClick={(e: any) => onClickAS(e)}
+              >
+                <img src={process.env.PUBLIC_URL + "/as.svg"} />
+              </span>
+              <span className={classes.link} onClick={(e: any) => onClickGP(e)}>
+                <img src={process.env.PUBLIC_URL + "/gp.svg"} />
+              </span>
+            </Grid>
           </Grid>
         </Grid>
       </div>

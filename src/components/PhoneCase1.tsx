@@ -6,6 +6,32 @@ import { BccTypography, BccButton } from "./BccComponents";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    [theme.breakpoints.between("md", "xl")]: {
+      root: {
+        maxWidth: 1280,
+        margin: "0 auto",
+        marginTop: 80,
+        padding: "0 56px 80px",
+      },
+      title: {
+        marginBottom: 16,
+      },
+      imgBlock: {
+        width: "50%",
+        position: "relative",
+        "& > img": {
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+        },
+      },
+      textBlock: { width: "50%", padding: "96px 64px 80px 0" },
+      container: {
+        backgroundColor: "#F1F7F9",
+        borderRadius: 24,
+        width: "100%",
+      },
+    },
     [theme.breakpoints.down("sm")]: {
       root: {
         maxWidth: "100%",
@@ -40,30 +66,10 @@ const useStyles = makeStyles((theme: Theme) =>
         alignItems: "center",
       },
     },
-    [theme.breakpoints.between("md", "xl")]: {
-      root: {
-        maxWidth: 1280,
-        margin: "0 auto",
-        marginTop: 80,
-        padding: "0 56px 80px",
-      },
-      title: {
-        marginBottom: 16,
-      },
-      imgBlock: {
-        width: "50%",
-        position: "relative",
-        "& > img": {
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-        },
-      },
-      textBlock: { width: "50%", padding: "96px 64px 80px 0" },
+    [theme.breakpoints.down("xs")]: {
       container: {
-        backgroundColor: "#F1F7F9",
-        borderRadius: 24,
-        width: "100%",
+        flexDirection: "column-reverse",
+        textAlign: "center",
       },
     },
   })

@@ -54,7 +54,8 @@ const useStyles = makeStyles((theme: Theme) =>
       root: {
         maxWidth: 1280,
         margin: "0 auto",
-        padding: "0 56px 85px",
+        boxSizing: "border-box",
+        padding: "0 56px 56px",
       },
       title: {
         marginBottom: 16,
@@ -78,6 +79,22 @@ const useStyles = makeStyles((theme: Theme) =>
         borderRadius: 24,
         color: "white",
         width: "100%",
+      },
+    },
+    [theme.breakpoints.down("xs")]: {
+      container: {
+        flexDirection: "column-reverse",
+        textAlign: "center",
+        marginBottom: 70,
+      },
+      imgBlock: {
+        width: "100%",
+        maxHeight: 150,
+        padding: 0,
+        "& > img": {
+          width: "100%",
+          height: 250,
+        },
       },
     },
   })

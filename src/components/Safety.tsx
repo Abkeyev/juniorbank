@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme: Theme) =>
       root: {
         maxWidth: 1280,
         margin: "0 auto",
+        boxSizing: "border-box",
         padding: "0 56px 120px",
       },
       title: {
@@ -69,6 +70,14 @@ const useStyles = makeStyles((theme: Theme) =>
             },
           },
         },
+      },
+    },
+    [theme.breakpoints.down("xs")]: {
+      root: {
+        marginTop: 0,
+      },
+      title: {
+        textAlign: "center",
       },
     },
     root: {

@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "915f1eb5e9663d26f5a7ff862c8bfaf5",
+    "revision": "6b675a813e1cf3b8bb2fbf1929b205e6",
     "url": "/juniorbank/index.html"
   },
   {
-    "revision": "7a4524d022a003d1e38a",
+    "revision": "974b50330712ee6b5f25",
     "url": "/juniorbank/static/css/main.5bb555b7.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/juniorbank/static/js/2.0216ae12.chunk.js.LICENSE"
   },
   {
-    "revision": "7a4524d022a003d1e38a",
-    "url": "/juniorbank/static/js/main.15506271.chunk.js"
+    "revision": "974b50330712ee6b5f25",
+    "url": "/juniorbank/static/js/main.f985d117.chunk.js"
   },
   {
     "revision": "124e880b355f2b85ddb2",

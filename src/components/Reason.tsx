@@ -45,9 +45,10 @@ const useStyles = makeStyles((theme: Theme) =>
       root: {
         maxWidth: 1280,
         height: 300,
+        boxSizing: "border-box",
         margin: "0 auto",
         marginBottom: 100,
-        padding: "0 56px 85px",
+        padding: "0 56px 64px",
       },
       title: {
         marginBottom: 30,
@@ -78,6 +79,11 @@ const useStyles = makeStyles((theme: Theme) =>
           width: "32%",
           left: "68%",
         },
+      },
+    },
+    [theme.breakpoints.down("xs")]: {
+      title: {
+        marginTop: 0,
       },
     },
   })

@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
       root: {
         maxWidth: 1280,
         margin: "0 auto",
+        boxSizing: "border-box",
         marginBottom: 140,
         padding: "0 56px 0",
       },
@@ -184,6 +185,7 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       maxWidth: 1280,
       margin: "0 auto",
+      boxSizing: "border-box",
       marginBottom: 70,
       position: "relative",
     },

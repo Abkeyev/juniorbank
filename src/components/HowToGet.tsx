@@ -16,6 +16,14 @@ const useStyles = makeStyles((theme: Theme) =>
         display: "flex",
         padding: "0 56px",
       },
+      containerTitle: {
+        maxWidth: 1280,
+        margin: "0 auto",
+        boxSizing: "border-box",
+        position: "relative",
+        display: "flex",
+        padding: "0 56px",
+      },
       stepsMob: {
         display: "none",
       },
@@ -234,10 +242,20 @@ const useStyles = makeStyles((theme: Theme) =>
       container: {
         padding: "0 12px",
       },
+      title: {
+        marginBottom: 12,
+        padding: 16,
+      },
       stepsMob: {
         "& > div": {
           "& > div:first-child": {
-            width: "100%",
+            width: "400px",
+            margin: "12px auto",
+            height: "400px",
+            "& > div": {
+              backgroundPositionY: "top",
+              backgroundSize: "contain!important",
+            },
           },
         },
       },
@@ -362,79 +380,235 @@ const HowToGet = (props: any) => {
   };
 
   return (
-    <div className={classes.container} ref={props.refProp}>
-      <div className={`${classes.stepper} ${fixedBot ? classes.fixedBot : ""}`}>
-        <div className={fixed ? classes.fixed : ""}>
-          {steps.map((s: any) => {
-            if (s === active && s < steps.length - 1)
-              return (
-                <>
+    <>
+      <div className={classes.containerTitle}>
+        <BccTypography type="h2" block className={classes.title}>
+          Как заказать карту?
+        </BccTypography>
+      </div>
+      <div className={classes.container} ref={props.refProp}>
+        <div
+          className={`${classes.stepper} ${fixedBot ? classes.fixedBot : ""}`}
+        >
+          <div className={fixed ? classes.fixed : ""}>
+            {steps.map((s: any) => {
+              if (s === active && s < steps.length - 1)
+                return (
+                  <>
+                    <div
+                      onClick={() => {
+                        scrollToStep(s);
+                      }}
+                      className="active"
+                    ></div>
+                    <div></div>
+                  </>
+                );
+              if (s === active && s === steps.length - 1)
+                return (
+                  <>
+                    <div
+                      onClick={() => {
+                        scrollToStep(s);
+                      }}
+                      className="active"
+                    ></div>
+                  </>
+                );
+              else if (s < active && s < steps.length - 1)
+                return (
+                  <>
+                    <div
+                      onClick={() => {
+                        scrollToStep(s);
+                      }}
+                      className="active"
+                    ></div>
+                    <div className="active"></div>
+                  </>
+                );
+              else if (s < steps.length - 1)
+                return (
+                  <>
+                    <div
+                      onClick={() => {
+                        scrollToStep(s);
+                      }}
+                    ></div>
+                    <div></div>
+                  </>
+                );
+              else
+                return (
                   <div
                     onClick={() => {
                       scrollToStep(s);
                     }}
-                    className="active"
                   ></div>
-                  <div></div>
-                </>
-              );
-            if (s === active && s === steps.length - 1)
-              return (
-                <>
-                  <div
-                    onClick={() => {
-                      scrollToStep(s);
-                    }}
-                    className="active"
-                  ></div>
-                </>
-              );
-            else if (s < active && s < steps.length - 1)
-              return (
-                <>
-                  <div
-                    onClick={() => {
-                      scrollToStep(s);
-                    }}
-                    className="active"
-                  ></div>
-                  <div className="active"></div>
-                </>
-              );
-            else if (s < steps.length - 1)
-              return (
-                <>
-                  <div
-                    onClick={() => {
-                      scrollToStep(s);
-                    }}
-                  ></div>
-                  <div></div>
-                </>
-              );
-            else
-              return (
+                );
+            })}
+          </div>
+        </div>
+        <div className={classes.stepText}>
+          <div ref={step1Ref}>
+            <span>1</span>
+            <BccTypography color="#2D72E5" type="h4" block mb="16px">
+              Закажите карту
+            </BccTypography>
+            <BccTypography type="p2l" block mb="40px">
+              Откройте виртуальную детскую карту в приложении BCC.KZ или
+              пластиковую в любом отделении банка
+            </BccTypography>
+            <Grid container wrap="nowrap" className={classes.appLinks}>
+              <Grid item container direction="column">
+                <img
+                  src={process.env.PUBLIC_URL + "/as.svg"}
+                  onClick={(e: any) => onClickAS(e)}
+                />
+                <img
+                  src={process.env.PUBLIC_URL + "/gp.svg"}
+                  onClick={(e: any) => onClickGP(e)}
+                />
+              </Grid>
+              <img src={process.env.PUBLIC_URL + "/qr.svg"} />
+            </Grid>
+            <BccTypography type="p2l" block mt="16px">
+              Скачайте приложение BCC.KZ в App Store, Google Play или наведите
+              камеру телефона на QR код
+            </BccTypography>
+          </div>
+          <div ref={step2Ref}>
+            <span>2</span>
+            <BccTypography color="#2D72E5" type="h4" block mb="16px">
+              Установите приложение Junior Bank на телефон ребёнка
+            </BccTypography>
+            <BccTypography type="p2l" block mb="36px">
+              Как только откроется детская карта на телефонный номер ребенка
+              придет СМС с ссылкой на скачивание приложения.
+            </BccTypography>
+            <BccTypography type="p2l" block>
+              С помощью приложения{" "}
+              <a href="#" target="_blank" className={classes.link}>
+                Junior Bank
+              </a>{" "}
+              ребёнок сможет начать пользоваться картой и отслеживать свои
+              траты.
+            </BccTypography>
+          </div>
+          <div ref={step3Ref}>
+            <span>3</span>
+            <BccTypography color="#2D72E5" type="h4" block mb="16px">
+              Привяжите карту к Apple Pay или Samsung Pay
+            </BccTypography>
+            <BccTypography type="p2l" block>
+              Ребёнок со смартфоном, с функцией бесконтактных платежей, сможет
+              безопасно оплачивать свои покупки
+            </BccTypography>
+          </div>
+        </div>
+        <div
+          className={`${classes.stepGif} ${
+            fixedBot ? classes.fixedGifBot : ""
+          }`}
+        >
+          <div
+            style={{
+              backgroundColor:
+                active === 0 ? "#FED832" : active === 1 ? "#46E2CF" : "#FD7A7F",
+            }}
+            className={fixed ? classes.fixedGif : ""}
+          >
+            {active === 0 ? (
+              <>
                 <div
-                  onClick={() => {
-                    scrollToStep(s);
+                  className="active"
+                  style={{
+                    background: `url(${process.env.PUBLIC_URL}/1-step.gif) no-repeat center`,
                   }}
                 ></div>
-              );
-          })}
+                <div
+                  className="notActiveBot"
+                  style={{
+                    background: `url(${process.env.PUBLIC_URL}/2-step.gif) no-repeat center`,
+                  }}
+                ></div>
+                <div
+                  className="notActiveBot"
+                  style={{
+                    background: `url(${process.env.PUBLIC_URL}/3-step.gif) no-repeat center`,
+                  }}
+                ></div>
+              </>
+            ) : active === 1 ? (
+              <>
+                <div
+                  className="notActiveBot"
+                  style={{
+                    background: `url(${process.env.PUBLIC_URL}/1-step.gif) no-repeat center`,
+                  }}
+                ></div>
+                <div
+                  className="active"
+                  style={{
+                    background: `url(${process.env.PUBLIC_URL}/2-step.gif) no-repeat center`,
+                  }}
+                ></div>
+                <div
+                  className="notActiveBot"
+                  style={{
+                    background: `url(${process.env.PUBLIC_URL}/3-step.gif) no-repeat center`,
+                  }}
+                ></div>
+              </>
+            ) : (
+              <>
+                <div
+                  className="notActiveBot"
+                  style={{
+                    background: `url(${process.env.PUBLIC_URL}/1-step.gif) no-repeat center`,
+                  }}
+                ></div>
+                <div
+                  className="notActiveBot"
+                  style={{
+                    background: `url(${process.env.PUBLIC_URL}/2-step.gif) no-repeat center`,
+                  }}
+                ></div>
+                <div
+                  className="active"
+                  style={{
+                    background: `url(${process.env.PUBLIC_URL}/3-step.gif) no-repeat center`,
+                  }}
+                ></div>
+              </>
+            )}
+          </div>
         </div>
-      </div>
-      <div className={classes.stepText}>
-        <div ref={step1Ref}>
-          <span>1</span>
-          <BccTypography color="#2D72E5" type="h4" block mb="16px">
-            Закажите карту
-          </BccTypography>
-          <BccTypography type="p2l" block mb="40px">
-            Откройте виртуальную детскую карту в приложении BCC.KZ или
-            пластиковую в любом отделении банка
-          </BccTypography>
-          <Grid container wrap="nowrap" className={classes.appLinks}>
-            <Grid item container direction="column">
+        <div className={classes.stepsMob}>
+          <div>
+            <div>
+              <div
+                className={classes.stepImg}
+                style={{
+                  background: `url(${process.env.PUBLIC_URL +
+                    "/1-step.gif"}) no-repeat center`,
+                }}
+              ></div>
+            </div>
+            <span>1</span>
+            <BccTypography color="#2D72E5" type="h4" block mb="16px">
+              Закажите карту
+            </BccTypography>
+            <BccTypography type="p2l" block mb="40px">
+              Откройте виртуальную детскую карту в приложении BCC.KZ или
+              пластиковую в любом отделении банка
+            </BccTypography>
+            <Grid
+              container
+              justify="center"
+              wrap="nowrap"
+              className={classes.appLinks}
+            >
               <img
                 src={process.env.PUBLIC_URL + "/as.svg"}
                 onClick={(e: any) => onClickAS(e)}
@@ -444,199 +618,56 @@ const HowToGet = (props: any) => {
                 onClick={(e: any) => onClickGP(e)}
               />
             </Grid>
-            <img src={process.env.PUBLIC_URL + "/qr.svg"} />
-          </Grid>
-          <BccTypography type="p2l" block mt="16px">
-            Скачайте приложение BCC.KZ в App Store, Google Play или наведите
-            камеру телефона на QR код
-          </BccTypography>
-        </div>
-        <div ref={step2Ref}>
-          <span>2</span>
-          <BccTypography color="#2D72E5" type="h4" block mb="16px">
-            Установите приложение Junior Bank на телефон ребёнка
-          </BccTypography>
-          <BccTypography type="p2l" block mb="36px">
-            Как только откроется детская карта на телефонный номер ребенка
-            придет СМС с ссылкой на скачивание приложения.
-          </BccTypography>
-          <BccTypography type="p2l" block>
-            С помощью приложения{" "}
-            <a href="#" target="_blank" className={classes.link}>
-              Junior Bank
-            </a>{" "}
-            ребёнок сможет начать пользоваться картой и отслеживать свои траты.
-          </BccTypography>
-        </div>
-        <div ref={step3Ref}>
-          <span>3</span>
-          <BccTypography color="#2D72E5" type="h4" block mb="16px">
-            Привяжите карту к Apple Pay или Samsung Pay
-          </BccTypography>
-          <BccTypography type="p2l" block>
-            Ребёнок со смартфоном, с функцией бесконтактных платежей, сможет
-            безопасно оплачивать свои покупки
-          </BccTypography>
+          </div>
+          <div>
+            <div>
+              <div
+                className={classes.stepImg}
+                style={{
+                  background: `url(${process.env.PUBLIC_URL +
+                    "/2-step.gif"}) no-repeat center`,
+                }}
+              ></div>
+            </div>
+            <span>2</span>
+            <BccTypography color="#2D72E5" type="h4" block mb="16px">
+              Установите приложение Junior Bank на телефон ребёнка
+            </BccTypography>
+            <BccTypography type="p2l" block mb="36px">
+              Как только откроется детская карта на телефонный номер ребенка
+              придет СМС с ссылкой на скачивание приложения.
+            </BccTypography>
+            <BccTypography type="p2l" block>
+              С помощью приложения{" "}
+              <a href="#" target="_blank" className={classes.link}>
+                Junior Bank
+              </a>{" "}
+              ребёнок сможет начать пользоваться картой и отслеживать свои
+              траты.
+            </BccTypography>
+          </div>
+          <div>
+            <div>
+              <div
+                className={classes.stepImg}
+                style={{
+                  background: `url(${process.env.PUBLIC_URL +
+                    "/3-step.gif"}) no-repeat center`,
+                }}
+              ></div>
+            </div>
+            <span>3</span>
+            <BccTypography color="#2D72E5" type="h4" block mb="16px">
+              Привяжите карту к Apple Pay или Samsung Pay
+            </BccTypography>
+            <BccTypography type="p2l" block>
+              Ребёнок со смартфоном, с функцией бесконтактных платежей, сможет
+              безопасно оплачивать свои покупки
+            </BccTypography>
+          </div>
         </div>
       </div>
-      <div
-        className={`${classes.stepGif} ${fixedBot ? classes.fixedGifBot : ""}`}
-      >
-        <div
-          style={{
-            backgroundColor:
-              active === 0 ? "#FED832" : active === 1 ? "#46E2CF" : "#FD7A7F",
-          }}
-          className={fixed ? classes.fixedGif : ""}
-        >
-          {active === 0 ? (
-            <>
-              <div
-                className="active"
-                style={{
-                  background: `url(${process.env.PUBLIC_URL}/1-step.gif) no-repeat center bottom`,
-                }}
-              ></div>
-              <div
-                className="notActiveBot"
-                style={{
-                  background: `url(${process.env.PUBLIC_URL}/2-step.gif) no-repeat center bottom`,
-                }}
-              ></div>
-              <div
-                className="notActiveBot"
-                style={{
-                  background: `url(${process.env.PUBLIC_URL}/3-step.gif) no-repeat center bottom`,
-                }}
-              ></div>
-            </>
-          ) : active === 1 ? (
-            <>
-              <div
-                className="notActiveBot"
-                style={{
-                  background: `url(${process.env.PUBLIC_URL}/1-step.gif) no-repeat center bottom`,
-                }}
-              ></div>
-              <div
-                className="active"
-                style={{
-                  background: `url(${process.env.PUBLIC_URL}/2-step.gif) no-repeat center bottom`,
-                }}
-              ></div>
-              <div
-                className="notActiveBot"
-                style={{
-                  background: `url(${process.env.PUBLIC_URL}/3-step.gif) no-repeat center bottom`,
-                }}
-              ></div>
-            </>
-          ) : (
-            <>
-              <div
-                className="notActiveBot"
-                style={{
-                  background: `url(${process.env.PUBLIC_URL}/1-step.gif) no-repeat center bottom`,
-                }}
-              ></div>
-              <div
-                className="notActiveBot"
-                style={{
-                  background: `url(${process.env.PUBLIC_URL}/2-step.gif) no-repeat center bottom`,
-                }}
-              ></div>
-              <div
-                className="active"
-                style={{
-                  background: `url(${process.env.PUBLIC_URL}/3-step.gif) no-repeat center bottom`,
-                }}
-              ></div>
-            </>
-          )}
-        </div>
-      </div>
-      <div className={classes.stepsMob}>
-        <div>
-          <div>
-            <div
-              className={classes.stepImg}
-              style={{
-                background: `url(${process.env.PUBLIC_URL +
-                  "/1-step.gif"}) no-repeat center bottom`,
-              }}
-            ></div>
-          </div>
-          <span>1</span>
-          <BccTypography color="#2D72E5" type="h4" block mb="16px">
-            Закажите карту
-          </BccTypography>
-          <BccTypography type="p2l" block mb="40px">
-            Откройте виртуальную детскую карту в приложении BCC.KZ или
-            пластиковую в любом отделении банка
-          </BccTypography>
-          <Grid
-            container
-            justify="center"
-            wrap="nowrap"
-            className={classes.appLinks}
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/as.svg"}
-              onClick={(e: any) => onClickAS(e)}
-            />
-            <img
-              src={process.env.PUBLIC_URL + "/gp.svg"}
-              onClick={(e: any) => onClickGP(e)}
-            />
-          </Grid>
-        </div>
-        <div>
-          <div>
-            <div
-              className={classes.stepImg}
-              style={{
-                background: `url(${process.env.PUBLIC_URL +
-                  "/2-step.gif"}) no-repeat center bottom`,
-              }}
-            ></div>
-          </div>
-          <span>2</span>
-          <BccTypography color="#2D72E5" type="h4" block mb="16px">
-            Установите приложение Junior Bank на телефон ребёнка
-          </BccTypography>
-          <BccTypography type="p2l" block mb="36px">
-            Как только откроется детская карта на телефонный номер ребенка
-            придет СМС с ссылкой на скачивание приложения.
-          </BccTypography>
-          <BccTypography type="p2l" block>
-            С помощью приложения{" "}
-            <a href="#" target="_blank" className={classes.link}>
-              Junior Bank
-            </a>{" "}
-            ребёнок сможет начать пользоваться картой и отслеживать свои траты.
-          </BccTypography>
-        </div>
-        <div>
-          <div>
-            <div
-              className={classes.stepImg}
-              style={{
-                background: `url(${process.env.PUBLIC_URL +
-                  "/3-step.gif"}) no-repeat center bottom`,
-              }}
-            ></div>
-          </div>
-          <span>3</span>
-          <BccTypography color="#2D72E5" type="h4" block mb="16px">
-            Привяжите карту к Apple Pay или Samsung Pay
-          </BccTypography>
-          <BccTypography type="p2l" block>
-            Ребёнок со смартфоном, с функцией бесконтактных платежей, сможет
-            безопасно оплачивать свои покупки
-          </BccTypography>
-        </div>
-      </div>
-    </div>
+    </>
   );
 };
 

@@ -45,8 +45,9 @@ const useStyles = makeStyles((theme: Theme) =>
       root: {
         maxWidth: 1280,
         margin: "0 auto",
+        boxSizing: "border-box",
         marginTop: 102,
-        padding: "0 56px 85px",
+        padding: "0 56px 64px",
       },
       title: {
         marginBottom: 16,
@@ -63,6 +64,24 @@ const useStyles = makeStyles((theme: Theme) =>
         backgroundColor: "#F1F7F9",
         borderRadius: 24,
         width: "100%",
+      },
+    },
+    [theme.breakpoints.down("xs")]: {
+      root: {
+        marginTop: 0,
+      },
+      container: {
+        flexDirection: "column-reverse",
+        textAlign: "center",
+      },
+      textBlock: {
+        width: "100%",
+      },
+      imgBlock: {
+        width: "90%",
+      },
+      title: {
+        wordBreak: "break-word",
       },
     },
   })

@@ -85,7 +85,7 @@ const Benefits = () => {
     },
     {
       code: `Безопасность`,
-      value: `Мы позаботимся о сохранности денежных средств. Лимиты от банка всегда на чеку.<br/>У родителя под рукой возможность увеличить или уменьшить лимиты в любой момент`,
+      value: `Мы позаботимся о сохранности денежных средств. Лимиты от банка всегда на чеку.<br/>У родителя под рукой возможность увеличить или уменьшить лимиты в любой момент.`,
     },
     {
       code: `Уведомления`,
@@ -303,7 +303,7 @@ const useStyles = makeStyles((theme: Theme) =>
         position: "relative",
         maxWidth: "100%",
         margin: "0 auto",
-        padding: "0 16px",
+        padding: "16px",
         color: "white",
       },
       title: {
@@ -317,9 +317,9 @@ const useStyles = makeStyles((theme: Theme) =>
     [theme.breakpoints.between("sm", "xl")]: {
       root: {
         maxWidth: 1280,
-        padding: "0 32px",
+        padding: "32px",
         margin: "0 auto",
-        marginBottom: 40,
+        boxSizing: "border-box",
         position: "relative",
       },
       title: {
@@ -348,9 +348,6 @@ const AdditionalInfo = () => {
 
   return (
     <Grid container className={classes.root}>
-      <BccTypography type="h2" block className={classes.title}>
-        Как заказать карту?
-      </BccTypography>
       <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
         <Tab
           onHandleChanged={(i: number) => swipeTab(i)}
