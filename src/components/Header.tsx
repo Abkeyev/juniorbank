@@ -104,7 +104,7 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "100%",
         boxSizing: "border-box",
         margin: "0 auto",
-        padding: "45px 56px 96px",
+        padding: "56px",
         zIndex: 99,
         position: "relative",
       },
@@ -301,7 +301,7 @@ const Header = (props: any) => {
                 onClick={(e: any) => order(e)}
                 size="large"
               >
-                Заказать карту
+                Оформить карту
               </BccButton>
             </Grid>
             <Grid

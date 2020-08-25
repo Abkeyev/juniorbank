@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/juniorbank/static/css/main.5bb555b7.chunk.css",
-    "main.js": "/juniorbank/static/js/main.f985d117.chunk.js",
-    "main.js.map": "/juniorbank/static/js/main.f985d117.chunk.js.map",
+    "main.js": "/juniorbank/static/js/main.04b2554c.chunk.js",
+    "main.js.map": "/juniorbank/static/js/main.04b2554c.chunk.js.map",
     "runtime-main.js": "/juniorbank/static/js/runtime-main.e10f7fe1.js",
     "runtime-main.js.map": "/juniorbank/static/js/runtime-main.e10f7fe1.js.map",
-    "static/js/2.0216ae12.chunk.js": "/juniorbank/static/js/2.0216ae12.chunk.js",
-    "static/js/2.0216ae12.chunk.js.map": "/juniorbank/static/js/2.0216ae12.chunk.js.map",
+    "static/js/2.19ce36e3.chunk.js": "/juniorbank/static/js/2.19ce36e3.chunk.js",
+    "static/js/2.19ce36e3.chunk.js.map": "/juniorbank/static/js/2.19ce36e3.chunk.js.map",
     "index.html": "/juniorbank/index.html",
-    "precache-manifest.c448343b714d46a3f773e0171e0c2cdd.js": "/juniorbank/precache-manifest.c448343b714d46a3f773e0171e0c2cdd.js",
+    "precache-manifest.d8d295969d2c52b5c19a9c96255de8a0.js": "/juniorbank/precache-manifest.d8d295969d2c52b5c19a9c96255de8a0.js",
     "service-worker.js": "/juniorbank/service-worker.js",
     "static/css/main.5bb555b7.chunk.css.map": "/juniorbank/static/css/main.5bb555b7.chunk.css.map",
-    "static/js/2.0216ae12.chunk.js.LICENSE": "/juniorbank/static/js/2.0216ae12.chunk.js.LICENSE"
+    "static/js/2.19ce36e3.chunk.js.LICENSE": "/juniorbank/static/js/2.19ce36e3.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.e10f7fe1.js",
-    "static/js/2.0216ae12.chunk.js",
+    "static/js/2.19ce36e3.chunk.js",
     "static/css/main.5bb555b7.chunk.css",
-    "static/js/main.f985d117.chunk.js"
+    "static/js/main.04b2554c.chunk.js"
   ]
 }

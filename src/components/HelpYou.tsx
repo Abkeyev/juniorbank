@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme: Theme) =>
         maxWidth: 1280,
         margin: "0 auto",
         boxSizing: "border-box",
-        marginBottom: 140,
-        padding: "0 56px 0",
+        marginBottom: 70,
+        position: "relative",
       },
       helpYou: {
         fontStyle: "normal",
@@ -36,6 +36,13 @@ const useStyles = makeStyles((theme: Theme) =>
         "&:hover": {
           cursor: "pointer",
         },
+      },
+      title: {
+        textAlign: "left",
+        marginBottom: 36,
+      },
+      subTitle: {
+        marginBottom: 16,
       },
       ourSpec: {
         fontStyle: "normal",
@@ -69,22 +76,57 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       phone: {
         color: "#ffffff",
-        background: "#2D72E5",
-        borderRadius: 8,
         width: 32,
         height: 32,
-        padding: 6,
-        boxSizing: "border-box",
-        verticalAlign: "text-bottom",
         marginRight: 16,
+      },
+      callUs: {
+        "& > div:first-child": {
+          marginRight: 24,
+        },
+        "& > div": {
+          width: "35%",
+          "& > div": {
+            backgroundColor: "#FFFFFF",
+            borderRadius: 8,
+            minHeight: 100,
+            padding: 20,
+            border: "1px solid #E8E8E8",
+            alignContent: "center",
+          },
+        },
       },
     },
     [theme.breakpoints.down("sm")]: {
       root: {
-        maxWidth: "100%",
+        maxWidth: 1280,
         margin: "0 auto",
-        marginBottom: 32,
-        padding: "0 16px 32px",
+        boxSizing: "border-box",
+        marginBottom: 36,
+        padding: "0 28px",
+        position: "relative",
+      },
+      phone: {
+        color: "#ffffff",
+        width: 32,
+        height: 32,
+        marginRight: 16,
+      },
+      callUs: {
+        "& > div:first-child": {
+          marginRight: 24,
+        },
+        "& > div": {
+          width: "calc(50% - 12px)",
+          "& > div": {
+            backgroundColor: "#FFFFFF",
+            borderRadius: 8,
+            minHeight: 100,
+            padding: 20,
+            border: "1px solid #E8E8E8",
+            alignContent: "center",
+          },
+        },
       },
       mainRoot: {
         backgroundColor: "#FAFAFA",
@@ -135,20 +177,16 @@ const useStyles = makeStyles((theme: Theme) =>
         fontWeight: "bold",
         fontSize: 28,
       },
-      phone: {
-        color: "#ffffff",
-        background: "#2D72E5",
-        borderRadius: 8,
-        width: 32,
-        height: 32,
-        padding: 6,
-        boxSizing: "border-box",
-        verticalAlign: "text-bottom",
-        marginRight: 16,
-      },
       gridMargin: {
         marginTop: 30,
         padding: "0 !important",
+      },
+      title: {
+        textAlign: "left",
+        marginBottom: 36,
+      },
+      subTitle: {
+        marginBottom: 16,
       },
     },
     [theme.breakpoints.down("xs")]: {
@@ -181,23 +219,16 @@ const useStyles = makeStyles((theme: Theme) =>
       gridMargin: {
         marginTop: 0,
       },
-    },
-    root: {
-      maxWidth: 1280,
-      margin: "0 auto",
-      boxSizing: "border-box",
-      marginBottom: 70,
-      position: "relative",
-    },
-    gridMargin: {
-      "& > a": {
-        textDecoration: "none",
-        color: "black",
+      callUs: {
+        "& > div:first-child": { marginRight: 0, marginBottom: 12 },
+        "& > div": {
+          width: "100%",
+          "& > span": {
+            fontSize: 24,
+            lineHeight: "24px",
+          },
+        },
       },
-    },
-    title: {
-      textAlign: "center",
-      marginBottom: 20,
     },
   })
 );
@@ -224,57 +255,49 @@ const HelpYou = () => {
 
   return (
     <Grid container className={classes.mainRoot}>
-      <Grid container className={classes.root} spacing={4} justify="center">
-        <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-          <BccTypography type="h2" block className={classes.title}>
-            Возникли вопросы, обращайтесь
+      <Grid container className={classes.root} justify="center">
+        <Grid item>
+          <BccTypography type="h1" block className={classes.title}>
+            Возникли вопросы?
           </BccTypography>
         </Grid>
-        <Grid
-          item
-          xl={4}
-          lg={4}
-          md={6}
-          sm={12}
-          xs={12}
-          className={classes.gridMargin}
-        >
-          <Box
-            onClick={() => onClickCall505()}
-            className={`${classes.paper} ${classes.textPapr}`}
-            height={1}
-          >
-            <Typography className={classes.freeCallText}>
-              <Call className={classes.freeCall} />
-              505
-            </Typography>
-            <Typography className={classes.ourSpec}>
-              Бесплатно с мобильного
-            </Typography>
-          </Box>
-        </Grid>
-        <Grid
-          item
-          xl={4}
-          lg={4}
-          md={6}
-          sm={12}
-          xs={12}
-          className={classes.gridMargin}
-        >
-          <Box
-            className={classes.paper}
-            height={1}
-            onClick={() => onClickCallMB()}
-          >
-            <Typography className={classes.phoneText}>
-              <img
-                src={process.env.PUBLIC_URL + "/phone.svg"}
-                className={classes.phone}
-              />{" "}
-              8 (701) 244 30 30
-            </Typography>
-          </Box>
+        <Grid container justify="center" className={classes.callUs}>
+          <Grid item>
+            <BccTypography type="h2" block className={classes.subTitle}>
+              Звоните
+            </BccTypography>
+            <Grid container wrap="nowrap" onClick={() => onClickCall505()}>
+              <Grid item>
+                <Call className={classes.freeCall} />
+              </Grid>
+              <Grid item>
+                <BccTypography type="h4" block className={classes.subTitle}>
+                  505
+                </BccTypography>
+                <BccTypography type="p2" block>
+                  Бесплатно с мобильного
+                </BccTypography>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item>
+            <BccTypography type="h2" block className={classes.subTitle}>
+              Пишите
+            </BccTypography>
+            <Grid container wrap="nowrap" onClick={() => onClickCallMB()}>
+              <Grid item>
+                <img
+                  src={process.env.PUBLIC_URL + "/wp.svg"}
+                  className={classes.phone}
+                />
+              </Grid>
+              <Grid item>
+                <BccTypography type="h4" block>
+                  +7 (701) 244 30 30
+                </BccTypography>
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>

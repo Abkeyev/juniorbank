@@ -10,6 +10,7 @@ import {
   HowToGet,
   AdditionalInfo,
   HelpYou,
+  FixedHeader,
   Footer,
 } from "./components";
 import { ParallaxProvider } from "react-scroll-parallax";
@@ -26,6 +27,7 @@ function App() {
     <div className="root">
       <ParallaxProvider>
         <Header scrollToOrder={scrollToOrderRef} />
+        <FixedHeader scrollToOrder={scrollToOrderRef} />
         <Safety />
         <PhoneCase1 />
         <MobileApp />

@@ -89,7 +89,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const Safety = (props: any) => {
   const classes = useStyles({});
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="secondHeader">
       <BccTypography type="h1" block className={classes.title}>
         Контроль и безопасность
       </BccTypography>

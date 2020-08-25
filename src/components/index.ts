@@ -8,4 +8,5 @@ export { default as Easy } from "./Easy";
 export { default as HowToGet } from "./HowToGet";
 export { default as AdditionalInfo } from "./AdditionalInfo/AdditionalInfo";
 export { default as HelpYou } from "./HelpYou";
+export { default as FixedHeader } from "./FixedHeader";
 export { default as Footer } from "./Footer";

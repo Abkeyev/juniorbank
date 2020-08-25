@@ -120,6 +120,7 @@ const useStyles = makeStyles((theme: Theme) =>
           overflow: "hidden",
           position: "absolute",
           width: "inherit",
+          top: "inherit",
           height: "inherit",
           borderRadius: "50%",
           transition: "all .75s ease-out",
@@ -148,7 +149,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       fixedGif: {
         position: "fixed!important",
-        top: 40,
+        top: "140px!important",
       },
       fixedGifBot: {
         position: "absolute!important",
@@ -157,7 +158,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       fixed: {
         position: "fixed!important",
-        top: 160,
+        top: 260,
       },
       fixedBot: {
         position: "absolute!important",
@@ -324,11 +325,14 @@ const HowToGet = (props: any) => {
         step3Ref.current.offsetHeight;
       if (
         window.scrollY >=
-        step1Ref.current.offsetParent?.offsetTop + blockHeight
+        step1Ref.current.offsetParent?.offsetTop + blockHeight - 100
       ) {
         fixed && setFixed(false);
         !fixedBot && setFixedBot(true);
-      } else if (window.scrollY >= step1Ref.current.offsetParent?.offsetTop) {
+      } else if (
+        window.scrollY >=
+        step1Ref.current.offsetParent?.offsetTop - 100
+      ) {
         {
           !fixed && setFixed(true);
           fixedBot && setFixedBot(false);
