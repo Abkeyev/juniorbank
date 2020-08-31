@@ -128,10 +128,13 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     [theme.breakpoints.down("xs")]: {
       header: {
-        padding: "16px 26px",
+        padding: "16px",
         disaplay: "block",
         "& > div:first-child": {
           width: "20%",
+          "& > img": {
+            width: "100%",
+          },
         },
       },
       logo: {
