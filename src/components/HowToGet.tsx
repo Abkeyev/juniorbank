@@ -363,8 +363,8 @@ const HowToGet = (props: any) => {
     e.preventDefault();
 
     ReactGA.event({
-      category: "Juniorbank_downloawd_AppStore",
-      action: "juniorbank_appstore",
+      category: "bcc.kz_downloawd_AppStore",
+      action: "bcc.kz_appstore",
     });
     window.open(
       "https://apps.apple.com/kz/app/starbanking/id743617904",
@@ -374,8 +374,8 @@ const HowToGet = (props: any) => {
 
   const onClickGP = (e: any) => {
     ReactGA.event({
-      category: "Juniorbank_downloawd_GooglePlay",
-      action: "juniorbank_googleplay",
+      category: "bcc.kz_downloawd_GooglePlay",
+      action: "bcc.kz_googleplay",
     });
     window.open(
       "https://apps.apple.com/kz/app/starbanking/id743617904",

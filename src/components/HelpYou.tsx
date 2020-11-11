@@ -239,16 +239,16 @@ const HelpYou = () => {
 
   const onClickCall505 = () => {
     ReactGA.event({
-      category: "BccIronCard_iron_call_505",
-      action: "iron_call_505",
+      category: "Call_505",
+      action: "success_505",
     });
     window.open("tel:505");
   };
 
   const onClickCallMB = () => {
     ReactGA.event({
-      category: "BccIronCard_iron_call_2443030",
-      action: "iron_call_2443030",
+      category: "Call_2443030",
+      action: "success_2443030",
     });
     window.open("tel:87012443030");
   };

@@ -229,8 +229,8 @@ const Header = (props: any) => {
   const order = (e: any) => {
     e.preventDefault();
     ReactGA.event({
-      category: "1button_open_account_online_calltoaction",
-      action: "Open_account_online_calltoaction",
+      category: "CTA_order_juniorcrad",
+      action: "order_juniorcard",
     });
     props.scrollToOrder();
   };
