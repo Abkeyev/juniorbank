@@ -149,11 +149,13 @@ const useStyles = makeStyles((theme: Theme) =>
         left: 0,
         top: 355,
         animation: "$cardMode 2s alternate infinite",
+        display: 'none'
       },
       headerBgPart2: {
         left: "65%",
         top: 36,
         animation: "$cardMode2 8s linear infinite",
+        display: 'none'
       },
       headerBgPart3: {
         display: "none",
@@ -161,6 +163,7 @@ const useStyles = makeStyles((theme: Theme) =>
       headerBgPart4: {
         right: 91,
         top: 430,
+        display: 'none',
         animation: "$cardMode2 6s linear infinite",
       },
       headerBtn: {
