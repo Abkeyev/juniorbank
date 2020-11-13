@@ -631,7 +631,7 @@ const Safety = (props: any) => {
   const [open, setOpen] = React.useState(false);
   return (
     <div className={classes.root} id="secondHeader">
-      <Grid className={classes.bannerCat}
+      {/* <Grid className={classes.bannerCat}
         onClick={() => {
           setOpen(true);
         }}>
@@ -649,7 +649,7 @@ const Safety = (props: any) => {
           <span>❅</span>
           <span>❅</span>
         </div>
-      </Grid>
+      </Grid> */}
 
       <BccTypography type="h1" block className={classes.title}>
         Контроль и безопасность
@@ -710,7 +710,7 @@ const Safety = (props: any) => {
         </Grid>
       </Grid>
 
-      <Grid className={`${classes.fixedModal} ${open ? classes.open : ""}`}>
+      {/* <Grid className={`${classes.fixedModal} ${open ? classes.open : ""}`}>
         <Grid className={classes.modalClose}>
           <Grid className={`${classes.modalMain} ${classes.notScroll}`}>
 
@@ -805,7 +805,7 @@ const Safety = (props: any) => {
         </Grid>
 
         <div className={classes.drpBack} onClick={() => setOpen(false)}></div>
-      </Grid>
+      </Grid> */}
     </div>
   );
 };
